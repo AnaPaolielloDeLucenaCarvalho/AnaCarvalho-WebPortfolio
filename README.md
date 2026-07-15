@@ -4,7 +4,7 @@ Hi!! Welcome to the standard web version of my portfolio.
 
 As a game development student at DAE (Howest), I wanted to make sure my projects were easy to browse on any device, whether you're on a desktop or checking from your phone. This repository holds the clean, responsive web version of my portfolio showcasing my projects and game dev journey.
 
-**[View the Website Here!](LINK)**
+**[View the Website Here!](https://anapaoliellodelucenacarvalho.github.io/AnaCarvalho-WebPortfolio/)**
 
 **I also built an [interactive, game version of my portfolio](https://github.com/AnaPaolielloDeLucenaCarvalho/AnaCarvalho-GamePortfolio.git)!**
 
