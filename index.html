@@ -36,27 +36,22 @@
             </div>
         </header>
 
-        <!-- 2. Centered Title (No intro text to match the original PDF design exactly) -->
+        <!-- Title -->
         <div class="hero-center-content container">
             <h1 class="portfolio-title" id="hero-title">Portfolio</h1>
         </div>
 
-        <!-- 3. Bottom Grass Hill Transition Layer (Positioned at bottom of 100vh) -->
+        <!-- Grass -->
         <div class="scene-hill">
-            <img src="assets/environment/grass.png" alt="Grass Hill" class="grass-image">
+            <img src="assets/environment/Grass.png" alt="Grass Hill" class="grass-image">
 
-            <!-- Walking Character Container (animated across the viewport width via CSS) -->
+            <!-- Walking Ana (animated CSS) -->
             <div class="walking-character-container">
-                <!-- 
-                  Walking Character Sprite: Cycles through Left1.png, Left2.png, Left3.png 
-                  using a frame-by-frame CSS animation.
-                -->
                 <div class="walking-character" role="img" aria-label="Walking girl character sprite"></div>
             </div>
 
-            <!-- Spruce Trees Background Elements -->
+            <!-- Trees -->
             <div class="trees-container">
-                <!-- Integrated the user's custom pixel-art Tree.png asset -->
                 <img src="assets/environment/Tree.png" alt="Spruce Tree" class="tree-sprite tree-large">
                 <img src="assets/environment/Tree.png" alt="Spruce Tree" class="tree-sprite tree-medium">
                 <img src="assets/environment/Tree.png" alt="Spruce Tree" class="tree-sprite tree-small">
@@ -64,59 +59,25 @@
         </div>
     </section>
 
-    <!-- ==========================================================================
-         SAND BEACH BORDER (Top Shoreline transition to water)
-         ========================================================================== -->
-    <div class="beach-border">
-        <!-- Scattered environmental placeholders (Starfish & Rocks) -->
-        <div class="rock-placeholder" title="Rock Element">Rock</div>
-        <div class="starfish-placeholder" title="Starfish Element">★</div>
-        <div class="rock-placeholder" title="Rock Element">Rock</div>
-        <div class="starfish-placeholder" title="Starfish Element">★</div>
+    <!-- SAND BORDER -->
+    <div class="beach-border-top">
+        <img src="assets/environment/SandTransition.png" alt="Shoreline Sand Transition" class="beach-image">
     </div>
 
-        <!-- ==========================================================================
-             SCENE WATER (About Me & Bio Section)
-             ========================================================================== -->
+        <!-- WATER (About Me & Bio Section) -->
         <section id="about" class="scene-water" aria-labelledby="about-heading">
             <div class="container">
-                <!-- Floating animated wave details in water -->
-                <div class="wave-line-1" aria-hidden="true"></div>
-                <div class="wave-line-2" aria-hidden="true"></div>
 
                 <div class="about-grid">
-                    <!-- Profile Picture Frame (Left Column) -->
+                    <!-- Picture -->
                     <div class="profile-frame-wrapper">
-                        <!-- Tentacle Frame Overlay Placeholder -->
-                        <!-- 
-                          FUTURE IMAGE SWAP:
-                          This overlay represents the pixel-art orange/pink tentacles wrapping the frame in the PDF.
-                          When you have the tentacle transparent PNG asset, you can apply it as a background image 
-                          to this div or swap it for an <img> tag.
-                          Example:
-                          <img src="assets/ui/profile_tentacles.png" alt="Tentacle Border" class="tentacle-img">
-                        -->
-                        <div class="tentacle-overlay-placeholder">
-                            <div class="tentacle-label-box">
-                                Tentacle Overlay<br>
-                                <span style="font-size: 0.65rem; font-weight: normal; opacity: 0.8;">assets/ui/tentacles.png</span>
-                            </div>
-                        </div>
-
-                        <!-- Profile Picture Box -->
-                        <!-- 
-                          FUTURE IMAGE SWAP:
-                          To add your real photo, replace this placeholder div with an <img> tag.
-                          Example:
-                          <img src="assets/ui/profile_picture.png" alt="Ana Carvalho Profile Photo" class="profile-image-placeholder">
-                        -->
-                                        <img src="assets/ui/AboutPicture.png" alt="Ana Paoliello de Lucena Carvalho Profile Photo" class="profile-image">
+                        <img src="assets/ui/AboutPicture.png" alt="Ana Paoliello de Lucena Carvalho Profile Photo" class="profile-image">
                     </div>
 
-                    <!-- Biography & Skills Text Info (Right Column) -->
+                    <!-- Text Info -->
                     <div class="bio-content">
-                        <h2 class="bio-name" id="about-heading">Name: Ana Paoliello de Lucena Carvalho</h2>
-                        <h3 class="bio-skills">Skills: C++, Unity, Unreal Engine, Adobe Creative Suite</h3>
+                        <h2 class="bio-name" id="about-heading">Ana Paoliello de Lucena Carvalho</h2>
+                        <h3 class="bio-skills">C++, Unity, Unreal Engine, Adobe Creative Suite</h3>
                         <p class="bio-description">
                             I love exploring ideas and turning them into new experiences. I enjoy learning new skills and finding ways to create projects that leave an impact.
                         </p>
@@ -128,7 +89,8 @@
         <!-- ==========================================================================
              SAND BEACH BORDER (Bottom Shoreline transition from water back to grass)
              ========================================================================== -->
-        <div class="beach-border">
+        <div class="beach-border-bottom">
+            <!-- Placeholders for bottom shoreline (ocean-to-sand-to-grass) until bottom transition image is ready -->
             <div class="starfish-placeholder" title="Starfish Element">★</div>
             <div class="rock-placeholder" title="Rock Element">Rock</div>
             <div class="starfish-placeholder" title="Starfish Element">★</div>
