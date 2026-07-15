@@ -375,18 +375,11 @@ a
 
 .beach-border-bottom 
 {
-  height: 45px;
-  background-color: var(--color-sand);
-  border-top: 4px solid var(--color-sand-shadow);
-  border-bottom: 4px solid var(--color-brown-primary);
   width: 100%;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  overflow: hidden;
+  overflow: visible;
   z-index: 5;
-  margin-top: -30px;
+  margin-top: -55px;
 }
 
 .beach-image 
