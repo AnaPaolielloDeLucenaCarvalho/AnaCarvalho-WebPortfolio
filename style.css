@@ -99,22 +99,32 @@ a
 .header-wrapper 
 {
   width: 100%;
-  padding: 65px 0; /* Reduced vertical padding for a cleaner header area */
-  background-color: transparent; /* Transparent at scroll position 0 */
-  backdrop-filter: none; /* No blur at top */
-  border-bottom: 2px solid transparent; /* No border line at top */
-  position: fixed; /* Sticky fixed positioning across all sections */
+  padding: 65px 0;
+  background-color: transparent;
+  backdrop-filter: none;
+  border-bottom: 2px solid transparent;
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: 100; /* Stays on top of all scrolling content layers */
-  transition: background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease; /* Smooth transition */
+  z-index: 100;
+  transition: padding 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease; /* Smooth transition */
 }
 
-/* Class toggled via JS when scrolling down */
-.header-wrapper.scrolled {
-  background-color: rgba(246, 245, 242, 0.95); /* Solid/semi-transparent background when scrolled */
-  backdrop-filter: blur(6px); /* Premium visual blur when scrolled */
-  border-bottom: 2px solid var(--color-grid-line); /* Clean dividing line appears when scrolled */
+.header-wrapper .container {
+  transition: transform 0.3s ease; /* Smooth scroll shift upward */
+}
+
+.header-wrapper.scrolled 
+{
+  padding: 20px 0 10px 0;
+  background-color: rgba(246, 245, 242, 0.95);
+  backdrop-filter: blur(6px);
+  border-bottom: 2px solid var(--color-grid-line);
+}
+
+.header-wrapper.scrolled .container 
+{
+  transform: translateY(-5px);
 }
 
 .logo-link 
@@ -197,7 +207,7 @@ a
   align-items: center;
   justify-content: center;
   flex-grow: 1;
-  padding-bottom: -50px;
+  padding-bottom: 115px;
   gap: 24px;
   z-index: 3; /* Positioned below the scene hill (z-index 4) so the trees overlap in front of the text */
 }
@@ -219,85 +229,53 @@ a
    -------------------------------------------------------------------------- */
 .scene-hill {
   background-color: transparent; /* Transparent to let the background grid show behind the slope */
-  position: relative;
-  height: 130px;
+  position: absolute; /* Anchored exactly to the bottom of the hero section */
+  bottom: 0;
+  left: 0;
   width: 100%;
+  height: auto; /* Height determined dynamically by the grass-image to prevent stretching */
   overflow: visible; /* Allows character and tree sprites to stick out of bounds */
   z-index: 4;
-  
-  /* 
-     ASSET SWAP SUPPORT:
-     Loads Grass.png if ready. Falls back to a beautiful green SVG wavy hill data URI 
-     that matches the slope shape in how it should look.jpg perfectly.
-  */
-  background-image: 
-    url('assets/environment/Grass.png'), 
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 150' preserveAspectRatio='none'%3E%3Cpath d='M0,135 Q450,135 650,95 T1000,20 L1000,150 L0,150 Z' fill='%237cd57d'/%3E%3C/svg%3E");
-  background-repeat: repeat-x;
-  background-position: bottom center;
-  background-size: 100% 100%;
 }
 
-/* Walking Character Container - Animated back & forth AND up & down the slope */
+.grass-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
 .walking-character-container {
   position: absolute;
-  bottom: 12px; /* Anchor base height on the left flat ground */
+  bottom: 12px;
   left: 0;
-  z-index: 3; /* Walks behind the grass foreground overlay (z-index 6) but in front of background */
+  z-index: 3;
   width: 60px;
   height: 90px;
   
-  /* 
-     ANIMATION CONFIGURATION:
-     Moves the character container horizontally and vertically along the grass contour.
-  */
   animation: walk-back-and-forth 22s linear infinite;
 }
 
-.trees-container {
+.trees-container 
+{
   position: absolute;
   bottom: 0;
   right: 0;
   width: 300px;
   height: 100%;
-  z-index: 2;
+  z-index: auto;
 }
 
-/* Grass Foreground Layer Placeholder - Adds 3D Depth */
-.grass-foreground-placeholder {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 20px; /* Small overlapping grass bar */
-  z-index: 6; /* Layered on top of character feet (z-index 3), obscuring them as she walks */
-  pointer-events: none; /* User can click through this overlay element */
-  
-  /* 
-     Loads GrassForeground.png if ready. Falls back to a slightly darker green SVG wave 
-     matching the slope shape, layering on top of the character's feet for depth.
-  */
-  background-image: 
-    url('assets/environment/GrassForeground.png'), 
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 150' preserveAspectRatio='none'%3E%3Cpath d='M0,135 Q450,135 650,95 T1000,20 L1000,150 L0,150 Z' fill='%2364b765'/%3E%3C/svg%3E");
-  background-repeat: repeat-x;
-  background-position: bottom center;
-  background-size: 100% 100%;
-}
 
-/* Walking Girl character sprite styling and frame swapping */
-.walking-character {
+.walking-character 
+{
   width: 100%;
   height: 100%;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center bottom;
-  
-  /* Ensure pixel art graphics stay crisp and unblurred */
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-  
-  /* Bobbing vertical idle bounce. Frame swap speed increased to 0.4s to sync walking legs with translation speed */
+
   animation: 
     sprite-animation 0.4s steps(1) infinite,
     bobbing 2s infinite ease-in-out;
@@ -315,7 +293,7 @@ a
   height: 300px;
   bottom: 100px;
   right: 275px;
-  z-index: 3;
+  z-index: 2;
 }
 
 .tree-medium 
@@ -334,53 +312,52 @@ a
   z-index: 2;
 }
 
-/* --------------------------------------------------------------------------
-   7a. WALKING CHARACTER KEYFRAME ANIMATION
-   -------------------------------------------------------------------------- */
-
-/* Frame-by-frame background image switching for the 3 walking frames.
-   Updated to use the flattened 'assets/characters/' folder structure.
-*/
-@keyframes sprite-animation {
-  0%, 33.32% {
+/* WALKING KEYFRAME ANIMATION */
+@keyframes sprite-animation 
+{
+  0%, 33.32% 
+  {
     background-image: url('assets/characters/Girl1.png');
   }
-  33.33%, 66.65% {
+  33.33%, 66.65% 
+  {
     background-image: url('assets/characters/Girl2.png');
   }
-  66.66%, 100% {
+  66.66%, 100% 
+  {
     background-image: url('assets/characters/Girl3.png');
   }
 }
 
-/* Translates the character horizontally and vertically.
-   Vertical translation is restricted to a maximum climb of -30px for a flatter path.
-   Since the sprite faces right by default, scaleX(1) walks right and scaleX(-1) walks left.
-*/
-@keyframes walk-back-and-forth {
-  0% {
-    transform: translateX(-100px) translateY(0) scaleX(1); /* Start off-screen left, facing right */
+@keyframes walk-back-and-forth 
+{
+  0% 
+  {
+    transform: translateX(-100px) translateY(0) scaleX(1); /* left */
   }
-  22% {
-    transform: translateX(35vw) translateY(0) scaleX(1); /* Walk along the flat ground */
+  22% 
+  {
+    transform: translateX(35vw) translateY(0) scaleX(1); /* walk */
   }
-  45% {
-    transform: translateX(calc(100vw)) translateY(-30px) scaleX(1); /* Climb slightly up the right slope */
+  45% 
+  {
+    transform: translateX(calc(100vw)) translateY(-30px) scaleX(1); /* up */
   }
-  48% {
-    transform: translateX(calc(100vw)) translateY(-30px) scaleX(-1); /* Turn left before walking back */
+  48% 
+  {
+    transform: translateX(calc(100vw)) translateY(-30px) scaleX(-1); /* left */
   }
   70% {
-    transform: translateX(35vw) translateY(0) scaleX(-1); /* Descend slightly back to flat ground */
+    transform: translateX(35vw) translateY(0) scaleX(-1); /* down */
   }
   93% {
-    transform: translateX(-100px) translateY(0) scaleX(-1); /* Walk off-screen left */
+    transform: translateX(-100px) translateY(0) scaleX(-1); /* walk */
   }
   96% {
-    transform: translateX(-100px) translateY(0) scaleX(1); /* Turn right to restart cycle */
+    transform: translateX(-100px) translateY(0) scaleX(1); /* right */
   }
   100% {
-    transform: translateX(-100px) translateY(0) scaleX(1);
+    transform: translateX(-100px) translateY(0) scaleX(1); /* walk */
   }
 }
 
