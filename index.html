@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Optimization -->
+    <title>Ana Carvalho | Game Developer Portfolio</title>
+    <meta name="description" content="Portfolio - Ana Paoliello de Lucena Carvalho, Game Developer specializing in C++, Unity, Unreal Engine, and Adobe Creative Suite.">
+    <meta name="keywords" content="Game Developer, Portfolio, Ana Carvalho, Unity, Unreal Engine, C++, Game Design">
+    <meta name="author" content="Ana Paoliello de Lucena Carvalho">
+
+    <!-- Fonts + Stylesheet -->
+    <link rel="stylesheet" href="https://use.typekit.net/fex3aht.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section grid-bg-overlay" aria-labelledby="hero-title">
+        
+        <!-- Header / Navigation -->
+        <header class="header-wrapper">
+            <div class="container flex-between">
+                <a href="#" class="logo-link">
+                    <img src="assets/ui/Logo.png" alt="AN∀ Game Developer Logo" class="logo-image">
+                </a>
+                
+                <nav class="nav-menu" aria-label="Main Navigation">
+                    <ul>
+                        <li><a href="#about" class="nav-link">About Me</a></li>
+                        <li><a href="#projects" class="nav-link">Projects</a></li>
+                        <li><a href="#contacts" class="nav-link">Contacts</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- 2. Centered Title (No intro text to match the original PDF design exactly) -->
+        <div class="hero-center-content container">
+            <h1 class="portfolio-title" id="hero-title">Portfolio</h1>
+        </div>
+
+        <!-- 3. Bottom Grass Hill Transition Layer (Positioned at bottom of 100vh) -->
+        <div class="scene-hill">
+            <!-- Walking Character Container (animated across the viewport width via CSS) -->
+            <div class="walking-character-container">
+                <!-- 
+                  Walking Character Sprite: Cycles through Left1.png, Left2.png, Left3.png 
+                  using a frame-by-frame CSS animation.
+                -->
+                <div class="walking-character" role="img" aria-label="Walking girl character sprite"></div>
+            </div>
+
+            <!-- Spruce Trees Background Elements -->
+            <div class="trees-container">
+                <!-- Integrated the user's custom pixel-art Tree.png asset -->
+                <img src="assets/environment/Tree.png" alt="Spruce Tree" class="tree-sprite tree-large">
+                <img src="assets/environment/Tree.png" alt="Spruce Tree" class="tree-sprite tree-medium">
+                <img src="assets/environment/Tree.png" alt="Spruce Tree" class="tree-sprite tree-small">
+            </div>
+
+            <!-- Future Grass Foreground Layer (sits on top of character feet for depth) -->
+            <div class="grass-foreground-placeholder" aria-hidden="true"></div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         SAND BEACH BORDER (Top Shoreline transition to water)
+         ========================================================================== -->
+    <div class="beach-border">
+        <!-- Scattered environmental placeholders (Starfish & Rocks) -->
+        <div class="rock-placeholder" title="Rock Element">Rock</div>
+        <div class="starfish-placeholder" title="Starfish Element">★</div>
+        <div class="rock-placeholder" title="Rock Element">Rock</div>
+        <div class="starfish-placeholder" title="Starfish Element">★</div>
+    </div>
+
+        <!-- ==========================================================================
+             SCENE WATER (About Me & Bio Section)
+             ========================================================================== -->
+        <section id="about" class="scene-water" aria-labelledby="about-heading">
+            <div class="container">
+                <!-- Floating animated wave details in water -->
+                <div class="wave-line-1" aria-hidden="true"></div>
+                <div class="wave-line-2" aria-hidden="true"></div>
+
+                <div class="about-grid">
+                    <!-- Profile Picture Frame (Left Column) -->
+                    <div class="profile-frame-wrapper">
+                        <!-- Tentacle Frame Overlay Placeholder -->
+                        <!-- 
+                          FUTURE IMAGE SWAP:
+                          This overlay represents the pixel-art orange/pink tentacles wrapping the frame in the PDF.
+                          When you have the tentacle transparent PNG asset, you can apply it as a background image 
+                          to this div or swap it for an <img> tag.
+                          Example:
+                          <img src="assets/ui/profile_tentacles.png" alt="Tentacle Border" class="tentacle-img">
+                        -->
+                        <div class="tentacle-overlay-placeholder">
+                            <div class="tentacle-label-box">
+                                Tentacle Overlay<br>
+                                <span style="font-size: 0.65rem; font-weight: normal; opacity: 0.8;">assets/ui/tentacles.png</span>
+                            </div>
+                        </div>
+
+                        <!-- Profile Picture Box -->
+                        <!-- 
+                          FUTURE IMAGE SWAP:
+                          To add your real photo, replace this placeholder div with an <img> tag.
+                          Example:
+                          <img src="assets/ui/profile_picture.png" alt="Ana Carvalho Profile Photo" class="profile-image-placeholder">
+                        -->
+                                        <img src="assets/ui/AboutPicture.png" alt="Ana Paoliello de Lucena Carvalho Profile Photo" class="profile-image">
+                    </div>
+
+                    <!-- Biography & Skills Text Info (Right Column) -->
+                    <div class="bio-content">
+                        <h2 class="bio-name" id="about-heading">Name: Ana Paoliello de Lucena Carvalho</h2>
+                        <h3 class="bio-skills">Skills: C++, Unity, Unreal Engine, Adobe Creative Suite</h3>
+                        <p class="bio-description">
+                            I love exploring ideas and turning them into new experiences. I enjoy learning new skills and finding ways to create projects that leave an impact.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             SAND BEACH BORDER (Bottom Shoreline transition from water back to grass)
+             ========================================================================== -->
+        <div class="beach-border">
+            <div class="starfish-placeholder" title="Starfish Element">★</div>
+            <div class="rock-placeholder" title="Rock Element">Rock</div>
+            <div class="starfish-placeholder" title="Starfish Element">★</div>
+            <div class="rock-placeholder" title="Rock Element">Rock</div>
+        </div>
+
+        <!-- ==========================================================================
+             SCENE GRASS (Projects Grid Section)
+             ========================================================================== -->
+        <section id="projects" class="scene-grass" aria-labelledby="projects-heading">
+            <div class="container">
+                <!-- Tiny flower details to break up grass texture -->
+                <div class="flower-detail-1" aria-hidden="true"></div>
+                <div class="flower-detail-2" aria-hidden="true"></div>
+
+                <!-- Responsive 3x3 Project Grid -->
+                <div class="project-grid">
+                    
+                    <!-- Loop of 9 Project Cards -->
+                    <!-- To add a real project image to any of these cards, swap the inner 
+                         .pixel-frame-placeholder div for an <img> tag. -->
+                    
+                    <!-- Card 1 -->
+                    <article class="project-card" tabindex="0" aria-label="Project 1 Details">
+                        <div class="project-image-container">
+                            <div class="pixel-frame-placeholder">
+                                <span class="placeholder-title">Project 1</span>
+                                <span class="placeholder-path">projects/project1.png</span>
+                                <span class="placeholder-spec">Click for details</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="project-card" tabindex="0" aria-label="Project 2 Details">
+                        <div class="project-image-container">
+                            <div class="pixel-frame-placeholder">
+                                <span class="placeholder-title">Project 2</span>
+                                <span class="placeholder-path">projects/project2.png</span>
+                                <span class="placeholder-spec">Click for details</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="project-card" tabindex="0" aria-label="Project 3 Details">
+                        <div class="project-image-container">
+                            <div class="pixel-frame-placeholder">
+                                <span class="placeholder-title">Project 3</span>
+                                <span class="placeholder-path">projects/project3.png</span>
+                                <span class="placeholder-spec">Click for details</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 4 -->
+                    <article class="project-card" tabindex="0" aria-label="Project 4 Details">
+                        <div class="project-image-container">
+                            <div class="pixel-frame-placeholder">
+                                <span class="placeholder-title">Project 4</span>
+                                <span class="placeholder-path">projects/project4.png</span>
+                                <span class="placeholder-spec">Click for details</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 5 -->
+                    <article class="project-card" tabindex="0" aria-label="Project 5 Details">
+                        <div class="project-image-container">
+                            <div class="pixel-frame-placeholder">
+                                <span class="placeholder-title">Project 5</span>
+                                <span class="placeholder-path">projects/project5.png</span>
+                                <span class="placeholder-spec">Click for details</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 6 -->
+                    <article class="project-card" tabindex="0" aria-label="Project 6 Details">
+                        <div class="project-image-container">
+                            <div class="pixel-frame-placeholder">
+                                <span class="placeholder-title">Project 6</span>
+                                <span class="placeholder-path">projects/project6.png</span>
+                                <span class="placeholder-spec">Click for details</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 7 -->
+                    <article class="project-card" tabindex="0" aria-label="Project 7 Details">
+                        <div class="project-image-container">
+                            <div class="pixel-frame-placeholder">
+                                <span class="placeholder-title">Project 7</span>
+                                <span class="placeholder-path">projects/project7.png</span>
+                                <span class="placeholder-spec">Click for details</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 8 -->
+                    <article class="project-card" tabindex="0" aria-label="Project 8 Details">
+                        <div class="project-image-container">
+                            <div class="pixel-frame-placeholder">
+                                <span class="placeholder-title">Project 8</span>
+                                <span class="placeholder-path">projects/project8.png</span>
+                                <span class="placeholder-spec">Click for details</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 9 -->
+                    <article class="project-card" tabindex="0" aria-label="Project 9 Details">
+                        <div class="project-image-container">
+                            <div class="pixel-frame-placeholder">
+                                <span class="placeholder-title">Project 9</span>
+                                <span class="placeholder-path">projects/project9.png</span>
+                                <span class="placeholder-spec">Click for details</span>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             SCENE FOREST & FOOTER (Contact Details Section)
+             ========================================================================== -->
+        <section id="contacts" class="scene-forest" aria-labelledby="contacts-heading">
+            <!-- Simulated Pine Forest Clearing Border Frame -->
+            <div class="forest-u-border" aria-hidden="true"></div>
+
+            <div class="container">
+                <!-- Center Contact Box Dialogue Frame -->
+                <div class="contact-clearing">
+                    <h2 class="contact-title" id="contacts-heading">Get In Touch</h2>
+                    <div class="contact-info-list">
+                        
+                        <!-- Email Link -->
+                        <div class="contact-item">
+                            <span class="label">Email:</span>
+                            <a href="mailto:anapaoliello@gmail.com">anapaoliello@hotmail.com</a>
+                        </div>
+                        
+                        <!-- LinkedIn Profile Link -->
+                        <div class="contact-item">
+                            <span class="label">Linkedin:</span>
+                            <a href="https://www.linkedin.com/in/ana-pl-carvalho" target="_blank" rel="noopener noreferrer">www.linkedin.com/in/ana-pl-carvalho</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Dynamic Header Background Toggle Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.querySelector('.header-wrapper');
+            if (header) {
+                // Initial check on load in case the user refreshed while scrolled down
+                if (window.scrollY > 10) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+
+                // Listen for scroll events to add/remove classes dynamically
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 10) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
