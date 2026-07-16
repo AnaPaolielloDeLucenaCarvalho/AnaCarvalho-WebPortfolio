@@ -506,10 +506,11 @@ a
 /* Project Card Frame Styling */
 .project-card {
   position: relative;
-  aspect-ratio: 1 / 1;
-  width: 100%;
+  width: 374px;
+  height: 302px;
   cursor: pointer;
   transition: transform var(--transition-speed) ease;
+  margin: 0 auto; /* Keep cards centered inside grid cells */
 }
 
 .project-card:hover {
@@ -535,15 +536,16 @@ a
   image-rendering: pixelated;
   image-rendering: crisp-edges;
   display: block;
+  object-fit: contain; /* Maintain pixel art aspect ratios without distorting */
 }
 
 /* Screenshot image sits behind */
 .project-media {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 6px;
+  left: 66px;
+  width: 212px;
+  height: 212px;
   z-index: 1; /* Under frame edges */
   object-fit: cover;
   display: block;
@@ -552,21 +554,21 @@ a
 /* Fallback box shown if ProjX.png fails to load */
 .project-media-fallback {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 6px;
+  left: 66px;
+  width: 212px;
+  height: 212px;
   z-index: 2; /* In between media and frame, covers media area */
   display: none; /* Swapped to flex on error */
   align-items: center;
   justify-content: center;
   font-family: inherit;
   font-weight: 800;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   color: var(--color-brown-primary);
   text-transform: uppercase;
   text-align: center;
-  padding: 20px;
+  padding: 10px;
   image-rendering: pixelated;
 }
 
