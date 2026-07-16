@@ -2,7 +2,7 @@
 
 Hi!! Welcome to the standard web version of my portfolio. 
 
-As a game development student at DAE (Howest), I wanted to make sure my projects were easy to browse on any device, whether you're on a desktop or checking from your phone. This repository holds the clean, responsive web version of my portfolio showcasing my projects and game dev journey.
+As a game development student at DAE (Howest), I wanted to make sure my projects were easy to browse on any device, whether you're on a desktop or checking from your phone. This repository holds the responsive web version of my portfolio, showcasing my projects and game dev journey.
 
 **[View the Website Here!](https://anapaoliellodelucenacarvalho.github.io/AnaCarvalho-WebPortfolio/)**
 
@@ -15,6 +15,12 @@ As a game development student at DAE (Howest), I wanted to make sure my projects
 I wanted to keep this version lightweight and clean, so it was built using:
 * **HTML5** for the structure.
 * **CSS** for the styling.
+
+---
+
+## Art & Inspiration
+
+The pixel art you see on this website was drawn by me! I leaned heavily into Pinterest for reference and inspiration (some of the designs, like the flowers in the project section, might look very similar, as I had a reference image for those), but every pixel was drawn by hand to match the vibe I wanted for the site/game.
 
 ---
 
