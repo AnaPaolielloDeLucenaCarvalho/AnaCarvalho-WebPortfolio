@@ -45,7 +45,7 @@
         <div class="scene-hill">
             <img src="assets/environment/Grass.png" alt="Grass Hill" class="grass-image">
 
-            <!-- Walking Ana (animated CSS) -->
+            <!-- Walking (animated CSS) -->
             <div class="walking-character-container">
                 <div class="walking-character" role="img" aria-label="Walking girl character sprite"></div>
             </div>
@@ -64,7 +64,7 @@
         <img src="assets/environment/SandTransition.png" alt="Shoreline Sand Transition" class="beach-image">
     </div>
 
-        <!-- WATER (About Me & Bio Section) -->
+        <!-- WATER SECTION (About Me) -->
         <section id="about" class="scene-water" aria-labelledby="about-heading">
             <div class="container">
 
@@ -74,7 +74,7 @@
                         <img src="assets/ui/AboutPicture.png" alt="Ana Paoliello de Lucena Carvalho Profile Photo" class="profile-image">
                     </div>
 
-                    <!-- Text Info -->
+                    <!-- Text -->
                     <div class="bio-content">
                         <h2 class="bio-name" id="about-heading">Ana Paoliello de Lucena Carvalho</h2>
                         <h3 class="bio-skills">C++, Unity, Unreal Engine, Adobe Creative Suite</h3>
@@ -86,107 +86,80 @@
             </div>
         </section>
 
-        <!-- ==========================================================================
-             SAND BEACH BORDER (Bottom Shoreline transition from water back to grass)
-             ========================================================================== -->
+        <!-- SAND BORDER -->
         <div class="beach-border-bottom">
-            <!-- Integrated real bottom transition image asset (ocean-to-sand-to-grass) -->
             <img src="assets/environment/OceanTransition.png" alt="Shoreline Water Transition" class="beach-image">
         </div>
 
-        <!-- ==========================================================================
-             SCENE GRASS (Projects Grid Section)
-             ========================================================================== -->
+        <!-- GRASS SECTION (Projects) -->
         <section id="projects" class="scene-grass" aria-labelledby="projects-heading">
             <div class="container">
 
-                <!-- Responsive 3x3 Project Grid -->
+                <!-- 3x3 Grid -->
                 <div class="project-grid">
                     
-                    <!-- Loop of 9 Project Cards -->
-                    <!-- To add a real project image to any of these cards, swap the inner 
-                         .pixel-frame-placeholder div for an <img> tag. -->
-                    
                     <!-- Card 1 -->
-                    <article class="project-card" tabindex="0" aria-label="Project 1 Details" data-title="Dual Rasterizer" data-desc="Developed for my Graphics Programming class, this project was designed to explore the low-level maths of 3D computer graphics. It features 2 rendering pipelines, allowing for a side-by-side visual and performance comparison between a software rasterizer and a modern hardware accelerated DirectX 11 rasterizer.&#10;&#10;Technical Highlights: Software Pipeline (CPU), DirectX 11 Pipeline (GPU), Unified Architecture (unified C++ framework that allows swapping between the two methods).">
+                    <article class="project-card" tabindex="0" aria-label="Project 1 Details" data-title="Dual Rasterizer" data-desc="Developed for my Graphics Programming class, this project was designed to explore the low-level maths of 3D computer graphics. It features 2 rendering pipelines, allowing for a side-by-side visual and performance comparison between a software rasterizer and a modern hardware accelerated DirectX 11 rasterizer.&#10;&#10;Technical Highlights: Software Pipeline (CPU), DirectX 11 Pipeline (GPU), Unified Architecture (unified C++ framework that allows swapping between the two methods)." data-bg="assets/projects/Proj1BG.png">
                         <div class="project-image-container">
-                            <!-- Actual project screenshot/artwork (sits behind the border frame) -->
                             <img src="assets/projects/Proj1.png" alt="Project 1 Preview" class="project-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <!-- Fallback styled div in case Proj1.png doesn't exist yet -->
                             <div class="project-media-fallback project-color-1">
                                 <span>Project 1</span>
                             </div>
-                            <!-- Custom pixel-art frame (sits on top, framing the project image) -->
                             <img src="assets/projects/BorderProj1.png" alt="Project 1 Frame" class="project-frame">
                         </div>
                     </article>
 
                     <!-- Card 2 -->
-                    <article class="project-card" tabindex="0" aria-label="Project 2 Details" data-title="Voxel Engine" data-desc="An interactive voxel world generator built in C++ and OpenGL. Implements advanced algorithmic chunk generation, greedy meshing optimizations to save memory, and dynamic real-time lighting with ambient occlusion.&#10;&#10;Technical Highlights: C++, OpenGL, Chunk Generation, Greedy Meshing, Ambient Occlusion.">
+                    <article class="project-card" tabindex="0" aria-label="Project 2 Details" data-title="Voxel Engine" data-desc="An interactive voxel world generator built in C++ and OpenGL. Implements advanced algorithmic chunk generation, greedy meshing optimizations to save memory, and dynamic real-time lighting with ambient occlusion.&#10;&#10;Technical Highlights: C++, OpenGL, Chunk Generation, Greedy Meshing, Ambient Occlusion." data-bg="assets/projects/Proj2BG.png">
                         <div class="project-image-container">
-                            <!-- Actual project screenshot/artwork (sits behind the border frame) -->
                             <img src="assets/projects/Proj2.png" alt="Project 2 Preview" class="project-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <!-- Fallback styled div in case Proj2.png doesn't exist yet -->
                             <div class="project-media-fallback project-color-2">
                                 <span>Project 2</span>
                             </div>
-                            <!-- Custom pixel-art frame (sits on top, framing the project image) -->
                             <img src="assets/projects/BorderProj2.png" alt="Project 2 Frame" class="project-frame">
                         </div>
                     </article>
 
                     <!-- Card 3 -->
-                    <article class="project-card" tabindex="0" aria-label="Project 3 Details" data-title="Retro Quest" data-desc="A classic 2D adventure platformer created in Unity. Featuring custom physics controllers, a responsive inventory system, state-machine based enemy AI, and retro screen shaders.&#10;&#10;Technical Highlights: C#, Unity 2D, Finite State Machine AI, Screen Shaders.">
+                    <article class="project-card" tabindex="0" aria-label="Project 3 Details" data-title="Retro Quest" data-desc="A classic 2D adventure platformer created in Unity. Featuring custom physics controllers, a responsive inventory system, state-machine based enemy AI, and retro screen shaders.&#10;&#10;Technical Highlights: C#, Unity 2D, Finite State Machine AI, Screen Shaders." data-bg="assets/projects/Proj3BG.png">
                         <div class="project-image-container">
-                            <!-- Actual project screenshot/artwork (sits behind the border frame) -->
                             <img src="assets/projects/Proj3.png" alt="Project 3 Preview" class="project-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <!-- Fallback styled div in case Proj3.png doesn't exist yet -->
                             <div class="project-media-fallback project-color-3">
                                 <span>Project 3</span>
                             </div>
-                            <!-- Custom pixel-art frame (sits on top, framing the project image) -->
                             <img src="assets/projects/BorderProj3.png" alt="Project 3 Frame" class="project-frame">
                         </div>
                     </article>
 
                     <!-- Card 4 -->
-                    <article class="project-card" tabindex="0" aria-label="Project 4 Details" data-title="Ray Tracer" data-desc="A lightweight CPU ray tracer written from scratch in C++. Supports recursive ray reflection and refraction, soft shadows, anti-aliasing, and bounding volume hierarchies (BVH) for accelerated rendering.&#10;&#10;Technical Highlights: C++ from scratch, Recursive Reflection/Refraction, BVH Acceleration.">
+                    <article class="project-card" tabindex="0" aria-label="Project 4 Details" data-title="Ray Tracer" data-desc="A lightweight CPU ray tracer written from scratch in C++. Supports recursive ray reflection and refraction, soft shadows, anti-aliasing, and bounding volume hierarchies (BVH) for accelerated rendering.&#10;&#10;Technical Highlights: C++ from scratch, Recursive Reflection/Refraction, BVH Acceleration." data-bg="assets/projects/Proj4BG.png">
                         <div class="project-image-container">
-                            <!-- Actual project screenshot/artwork (sits behind the border frame) -->
                             <img src="assets/projects/Proj4.png" alt="Project 4 Preview" class="project-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <!-- Fallback styled div in case Proj4.png doesn't exist yet -->
                             <div class="project-media-fallback project-color-4">
                                 <span>Project 4</span>
                             </div>
-                            <!-- Custom pixel-art frame (sits on top, framing the project image) -->
                             <img src="assets/projects/BorderProj4.png" alt="Project 4 Frame" class="project-frame">
                         </div>
                     </article>
 
                     <!-- Card 5 -->
-                    <article class="project-card" tabindex="0" aria-label="Project 5 Details" data-title="Combat Sandbox" data-desc="A mechanics prototype developed in Unreal Engine 5 focusing on fluid melee combat, hit stop impact effects, combo chains, and a robust lock-on camera system.&#10;&#10;Technical Highlights: C++, Blueprints, UE5, Combat Anim Blueprints, Combo State Tracking.">
+                    <article class="project-card" tabindex="0" aria-label="Project 5 Details" data-title="Combat Sandbox" data-desc="A mechanics prototype developed in Unreal Engine 5 focusing on fluid melee combat, hit stop impact effects, combo chains, and a robust lock-on camera system.&#10;&#10;Technical Highlights: C++, Blueprints, UE5, Combat Anim Blueprints, Combo State Tracking." data-bg="assets/projects/Proj5BG.png">
                         <div class="project-image-container">
-                            <!-- Actual project screenshot/artwork (sits behind the border frame) -->
                             <img src="assets/projects/Proj5.png" alt="Project 5 Preview" class="project-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <!-- Fallback styled div in case Proj5.png doesn't exist yet -->
                             <div class="project-media-fallback project-color-5">
                                 <span>Project 5</span>
                             </div>
-                            <!-- Custom pixel-art frame (sits on top, framing the project image) -->
                             <img src="assets/projects/BorderProj5.png" alt="Project 5 Frame" class="project-frame">
                         </div>
                     </article>
 
                     <!-- Card 6 -->
-                    <article class="project-card" tabindex="0" aria-label="Project 6 Details" data-title="Shader Sandbox" data-desc="A compilation of custom HLSL/GLSL pixel shaders showcasing procedural texture generation, raymarched volumetric clouds, and water flow simulations.&#10;&#10;Technical Highlights: HLSL, GLSL, Procedural Modeling, Volumetric Raymarching.">
+                    <article class="project-card" tabindex="0" aria-label="Project 6 Details" data-title="Shader Sandbox" data-desc="A compilation of custom HLSL/GLSL pixel shaders showcasing procedural texture generation, raymarched volumetric clouds, and water flow simulations.&#10;&#10;Technical Highlights: HLSL, GLSL, Procedural Modeling, Volumetric Raymarching." data-bg="assets/projects/Proj6BG.png">
                         <div class="project-image-container">
-                            <!-- Actual project screenshot/artwork (sits behind the border frame) -->
                             <img src="assets/projects/Proj6.png" alt="Project 6 Preview" class="project-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <!-- Fallback styled div in case Proj6.png doesn't exist yet -->
                             <div class="project-media-fallback project-color-6">
                                 <span>Project 6</span>
                             </div>
-                            <!-- Custom pixel-art frame (sits on top, framing the project image) -->
                             <img src="assets/projects/BorderProj6.png" alt="Project 6 Frame" class="project-frame">
                         </div>
                     </article>
@@ -195,26 +168,22 @@
             </div>
         </section>
 
-        <!-- ==========================================================================
-             SCENE FOREST & FOOTER (Contact Details Section)
-             ========================================================================== -->
+        <!-- FOREST SECTION (Contact) -->
         <section id="contacts" class="scene-forest" aria-labelledby="contacts-heading">
-            <!-- Simulated Pine Forest Clearing Border Frame -->
             <div class="forest-u-border" aria-hidden="true"></div>
 
             <div class="container">
-                <!-- Center Contact Box Dialogue Frame -->
                 <div class="contact-clearing">
                     <h2 class="contact-title" id="contacts-heading">Get In Touch</h2>
                     <div class="contact-info-list">
                         
-                        <!-- Email Link -->
+                        <!-- Email -->
                         <div class="contact-item">
                             <span class="label">Email:</span>
                             <a href="mailto:anapaoliello@gmail.com">anapaoliello@hotmail.com</a>
                         </div>
                         
-                        <!-- LinkedIn Profile Link -->
+                        <!-- LinkedIn -->
                         <div class="contact-item">
                             <span class="label">Linkedin:</span>
                             <a href="https://www.linkedin.com/in/ana-pl-carvalho" target="_blank" rel="noopener noreferrer">www.linkedin.com/in/ana-pl-carvalho</a>
@@ -226,74 +195,101 @@
         </section>
     </main>
 
-    <!-- Dynamic Header Background Toggle Script -->
+    <!-- Header Background Script -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', () => 
+        {
             const header = document.querySelector('.header-wrapper');
-            if (header) {
-                // Initial check on load in case the user refreshed while scrolled down
-                if (window.scrollY > 10) {
+            if (header) 
+            {
+                if (window.scrollY > 10) 
+                {
                     header.classList.add('scrolled');
-                } else {
+                } else 
+                {
                     header.classList.remove('scrolled');
                 }
 
-                // Listen for scroll events to add/remove classes dynamically
-                window.addEventListener('scroll', () => {
-                    if (window.scrollY > 10) {
+                window.addEventListener('scroll', () => 
+                {
+                    if (window.scrollY > 10) 
+                    {
                         header.classList.add('scrolled');
-                    } else {
+                    } else 
+                    {
                         header.classList.remove('scrolled');
                     }
                 });
             }
 
-            // JavaScript Modal Logic (Open, close on backdrop, close on X)
             const modal = document.getElementById('project-modal');
             const closeBtn = document.getElementById('modal-close');
             const cards = document.querySelectorAll('.project-card');
 
-            cards.forEach(card => {
-                card.addEventListener('click', () => {
+            cards.forEach(card => 
+            {
+                card.addEventListener('click', () => 
+                {
                     const title = card.getAttribute('data-title') || 'Project Title';
                     const desc = card.getAttribute('data-desc') || 'Project description...';
+                    const bg = card.getAttribute('data-bg') || '';
                     
                     modal.querySelector('.modal-title').textContent = title;
                     modal.querySelector('.modal-desc').textContent = desc;
+                    
+                    const bgImg = modal.querySelector('.modal-bg-image');
+                    if (bgImg) 
+                    {
+                        if (bg) 
+                        {
+                            bgImg.src = bg;
+                            bgImg.style.display = 'block';
+                        } else 
+                        {
+                            bgImg.src = '';
+                            bgImg.style.display = 'none';
+                        }
+                    }
                     
                     modal.style.display = 'flex';
                 });
             });
 
-            if (closeBtn) {
-                closeBtn.addEventListener('click', () => {
+            if (closeBtn) 
+            {
+                closeBtn.addEventListener('click', () => 
+                {
                     modal.style.display = 'none';
                 });
             }
 
-            if (modal) {
-                modal.addEventListener('click', (e) => {
-                    if (e.target === modal) {
+            if (modal) 
+            {
+                modal.addEventListener('click', (e) => 
+                {
+                    if (e.target === modal) 
+                    {
                         modal.style.display = 'none';
                     }
                 });
             }
         });
     </script>
-    <!-- Project Details Modal (Hidden by default) -->
+
+    <!-- Project Details -->
     <div class="project-modal-overlay" id="project-modal" aria-hidden="true" role="dialog" style="display: none;">
         <div class="project-modal-content">
+            <!-- Layer 1: Slideshow (Bottom) -->
+            <div class="modal-slideshow-placeholder"></div>
+            
+            <!-- Layer 2: Background (Middle) -->
+            <img src="" alt="Project Backdrop Frame" class="modal-bg-image">
+
+            <!-- Layer 3: Text + Close Button (Top) -->
             <button class="modal-close" id="modal-close" aria-label="Close Modal">&times;</button>
-            <div class="modal-layout">
-                <!-- Left Column: Video/Slideshow placeholder -->
-                <div class="modal-left">
-                    <div class="modal-slideshow-placeholder"></div>
-                </div>
-                <!-- Right Column: Text Details -->
-                <div class="modal-right">
-                    <h2 class="modal-title">Project Title</h2>
-                    <p class="modal-desc">Detailed project description goes here...</p>
-                </div>
+            <div class="modal-right">
+                <h2 class="modal-title">Project Title</h2>
+                <p class="modal-desc">Detailed project description goes here...</p>
             </div>
         </div>
     </div>

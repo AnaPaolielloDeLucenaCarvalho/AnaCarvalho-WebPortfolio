@@ -495,71 +495,77 @@ a
   position: relative;
 }
 
-/* 3x3 Project Grid Layout */
 /* 3x3 Responsive Project Grid Layout */
-.project-grid {
+.project-grid 
+{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
 }
 
 /* Project Card Frame Styling */
-.project-card {
+.project-card 
+{
   position: relative;
   width: 374px;
   height: 302px;
   cursor: pointer;
   transition: transform var(--transition-speed) ease;
-  margin: 0 auto; /* Keep cards centered inside grid cells */
+  margin: 0 auto;
 }
 
-.project-card:hover {
+.project-card:hover 
+{
   transform: translateY(-8px);
 }
 
 /* Container holding the layered elements */
-.project-image-container {
+.project-image-container 
+{
   width: 100%;
   height: 100%;
   position: relative;
 }
 
 /* Frame graphic sits on top */
-.project-frame {
+.project-frame 
+{
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 3; /* On top of screen media */
-  pointer-events: none; /* Propagate card clicks downwards */
+  z-index: 3;
+  pointer-events: none;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
   display: block;
-  object-fit: contain; /* Maintain pixel art aspect ratios without distorting */
+  object-fit: contain;
 }
 
 /* Screenshot image sits behind */
-.project-media {
+.project-media 
+{
   position: absolute;
   top: 6px;
   left: 66px;
   width: 212px;
   height: 212px;
-  z-index: 1; /* Under frame edges */
+  z-index: 1;
   object-fit: cover;
   display: block;
 }
 
 /* Fallback box shown if ProjX.png fails to load */
-.project-media-fallback {
+.project-media-fallback 
+{
   position: absolute;
   top: 6px;
   left: 66px;
   width: 212px;
   height: 212px;
-  z-index: 2; /* In between media and frame, covers media area */
-  display: none; /* Swapped to flex on error */
+  z-index: 2;
+  display: none;
   align-items: center;
   justify-content: center;
   font-family: inherit;
@@ -572,7 +578,8 @@ a
   image-rendering: pixelated;
 }
 
-.project-media-fallback span {
+.project-media-fallback span 
+{
   background-color: rgba(255, 255, 255, 0.85);
   padding: 6px 12px;
   border: 3px solid var(--color-brown-primary);
@@ -588,116 +595,142 @@ a
 .project-color-5 { background-color: #cf6a87; }
 .project-color-6 { background-color: #ea8685; }
 
-/* --------------------------------------------------------------------------
-   12. PROJECT MODAL (Pop-up Overlay)
-   -------------------------------------------------------------------------- */
-.project-modal-overlay {
+/* PROJECT MODAL (Pop-up Overlay) */
+.project-modal-overlay 
+{
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 200; /* Higher than sticky nav */
-  background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
-  display: none; /* Toggle with JS flex */
+  z-index: 200;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
   align-items: center;
   justify-content: center;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
 }
 
-.project-modal-content {
+.project-modal-content 
+{
   position: relative;
-  background-color: #8adb55; /* Grassy green background */
-  background-image: url('assets/environment/FullGrass.png'); /* Placeholder grassy pattern */
-  background-repeat: repeat;
-  background-size: auto;
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-  border: 12px solid #8c5e3c; /* Thick brown border */
-  outline: 4px solid #4a2c11; /* Dark brown outlines */
-  padding: 30px;
-  width: 900px;
-  height: 500px;
-  max-width: 90vw;
-  max-height: 90vh;
+  width: 70vw; /* Scaled down width so backdrop is more visible */
+  max-width: 1100px; /* Capped max-width for high-res monitors */
+  aspect-ratio: 1366 / 768;
+  height: auto;
   box-sizing: border-box;
-  box-shadow: 12px 12px 0px rgba(0, 0, 0, 0.4);
   z-index: 10;
-  display: flex;
+  border: none !important;
+  outline: none !important;
+  padding: 0;
+  background: transparent;
+  box-shadow: none !important;
 }
 
-.modal-layout {
-  display: flex;
-  gap: 30px;
+/* Layer 2: background frame image (Middle layer) */
+.modal-bg-image 
+{
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  display: block;
+  object-fit: fill;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Layer 1: Slideshow (Bottom layer) */
+.modal-slideshow-placeholder 
+{
+  position: absolute;
+  top: 9.8958%; /* 76px / 768px */
+  left: 5.5637%; /* 76px / 1366px */
+  width: 63.2504%; /* 864px / 1366px */
+  height: 65.625%; /* 504px / 768px */
+  z-index: 1;
+  background-color: #000000;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
   box-sizing: border-box;
 }
 
-.modal-left {
-  flex: 6; /* 60% width */
-  height: 100%;
-}
-
-.modal-right {
-  flex: 4; /* 40% width */
-  height: 100%;
+/* Layer 3: Text (Top layer) */
+.modal-right 
+{
+  position: absolute;
+  top: 9.8958%;    /* 76px / 768px */
+  left: 71.7423%;  /* 980px / 1366px */
+  width: 23.426%;  /* 320px / 1366px */
+  height: 65.625%; /* 504px / 768px */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  overflow-y: auto; /* Enable scrolling for overflow text */
-  padding-right: 12px; /* Gap for scrollbar */
+  overflow-y: auto;
+  padding-right: 12px;
   box-sizing: border-box;
+  z-index: 3;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
 }
 
-/* Custom retro scrollbar styling for the text column */
-.modal-right::-webkit-scrollbar {
+/* Scrollbar */
+.modal-right::-webkit-scrollbar 
+{
   width: 8px;
 }
-.modal-right::-webkit-scrollbar-track {
+.modal-right::-webkit-scrollbar-track 
+{
   background: #3b2c15;
   border: 2px solid #4a2c11;
   border-radius: 2px;
 }
-.modal-right::-webkit-scrollbar-thumb {
+.modal-right::-webkit-scrollbar-thumb 
+{
   background: #8c5e3c;
   border: 2px solid #4a2c11;
   border-radius: 2px;
 }
-.modal-right::-webkit-scrollbar-thumb:hover {
+.modal-right::-webkit-scrollbar-thumb:hover 
+{
   background: #4a2c11;
 }
 
-.modal-slideshow-placeholder {
-  width: 100%;
-  height: 100%; /* Spans full height of left column */
-  background-color: #000000;
-  border: 4px solid #3b2c15;
-  box-shadow: inset 0 0 12px rgba(0,0,0,0.85);
-  box-sizing: border-box;
-}
-
-.modal-title {
+.modal-title 
+{
   font-size: 2rem;
   font-weight: 800;
-  color: #3b2c15; /* Dark brown/olive color matching the reference */
+  color: #3b2c15;
   margin-top: 0;
   margin-bottom: 15px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
-.modal-desc {
+.modal-desc 
+{
   font-size: 1.05rem;
   line-height: 1.6;
-  color: #3b2c15; /* Dark brown/olive color */
+  color: #3b2c15;
   font-weight: 500;
   white-space: pre-wrap;
 }
 
+/* Layer 3: Close Button (Top layer) */
 .modal-close {
   position: absolute;
-  top: -24px;
-  right: -24px;
+  top: 24px;
+  right: 24px;
   width: 36px;
   height: 36px;
   background-color: #8c5e3c;
@@ -711,43 +744,57 @@ a
   align-items: center;
   justify-content: center;
   line-height: 1;
-  z-index: 15;
+  z-index: 3;
   box-shadow: 4px 4px 0px rgba(0,0,0,0.3);
   transition: background-color 0.2s, transform 0.2s;
 }
 
-.modal-close:hover {
+.modal-close:hover 
+{
   background-color: #4a2c11;
   transform: scale(1.05);
 }
 
-@media (max-width: 768px) {
-  .project-modal-content {
-    height: auto; /* Adapt height on mobile when columns stack */
+@media (max-width: 768px) 
+{
+  .project-modal-content 
+  {
+    width: 90vw; /* Take up more screen space when stacked vertically on mobile */
+    height: auto;
     max-height: 95vh;
-    display: block; /* Stack layout vertically */
-    overflow-y: auto; /* Allow entire modal content to scroll if needed */
+    display: block;
+    overflow-y: auto;
   }
-  .modal-layout {
-    flex-direction: column;
-    gap: 20px;
-    height: auto;
+  .modal-bg-image 
+  {
+    display: none;
   }
-  .modal-left {
-    height: auto;
-  }
-  .modal-slideshow-placeholder {
+  .modal-slideshow-placeholder 
+  {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
     aspect-ratio: 16 / 10;
     height: auto;
+    margin-bottom: 20px;
   }
-  .modal-right {
+  .modal-right 
+  {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
     height: auto;
-    overflow-y: visible; /* Scrollbar at container level on mobile */
+    overflow-y: visible;
     padding-right: 0;
+    padding: 20px;
   }
-  .modal-close {
+  .modal-close 
+  {
     top: 10px;
     right: 10px;
+    z-index: 10;
   }
 }
 
