@@ -108,7 +108,7 @@
                          .pixel-frame-placeholder div for an <img> tag. -->
                     
                     <!-- Card 1 -->
-                    <article class="project-card" tabindex="0" aria-label="Project 1 Details">
+                    <article class="project-card" tabindex="0" aria-label="Project 1 Details" data-title="Dual Rasterizer" data-desc="Developed for my Graphics Programming class, this project was designed to explore the low-level maths of 3D computer graphics. It features 2 rendering pipelines, allowing for a side-by-side visual and performance comparison between a software rasterizer and a modern hardware accelerated DirectX 11 rasterizer.&#10;&#10;Technical Highlights: Software Pipeline (CPU), DirectX 11 Pipeline (GPU), Unified Architecture (unified C++ framework that allows swapping between the two methods).">
                         <div class="project-image-container">
                             <!-- Actual project screenshot/artwork (sits behind the border frame) -->
                             <img src="assets/projects/Proj1.png" alt="Project 1 Preview" class="project-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -122,7 +122,7 @@
                     </article>
 
                     <!-- Card 2 -->
-                    <article class="project-card" tabindex="0" aria-label="Project 2 Details">
+                    <article class="project-card" tabindex="0" aria-label="Project 2 Details" data-title="Voxel Engine" data-desc="An interactive voxel world generator built in C++ and OpenGL. Implements advanced algorithmic chunk generation, greedy meshing optimizations to save memory, and dynamic real-time lighting with ambient occlusion.&#10;&#10;Technical Highlights: C++, OpenGL, Chunk Generation, Greedy Meshing, Ambient Occlusion.">
                         <div class="project-image-container">
                             <!-- Actual project screenshot/artwork (sits behind the border frame) -->
                             <img src="assets/projects/Proj2.png" alt="Project 2 Preview" class="project-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -136,7 +136,7 @@
                     </article>
 
                     <!-- Card 3 -->
-                    <article class="project-card" tabindex="0" aria-label="Project 3 Details">
+                    <article class="project-card" tabindex="0" aria-label="Project 3 Details" data-title="Retro Quest" data-desc="A classic 2D adventure platformer created in Unity. Featuring custom physics controllers, a responsive inventory system, state-machine based enemy AI, and retro screen shaders.&#10;&#10;Technical Highlights: C#, Unity 2D, Finite State Machine AI, Screen Shaders.">
                         <div class="project-image-container">
                             <!-- Actual project screenshot/artwork (sits behind the border frame) -->
                             <img src="assets/projects/Proj3.png" alt="Project 3 Preview" class="project-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -150,7 +150,7 @@
                     </article>
 
                     <!-- Card 4 -->
-                    <article class="project-card" tabindex="0" aria-label="Project 4 Details">
+                    <article class="project-card" tabindex="0" aria-label="Project 4 Details" data-title="Ray Tracer" data-desc="A lightweight CPU ray tracer written from scratch in C++. Supports recursive ray reflection and refraction, soft shadows, anti-aliasing, and bounding volume hierarchies (BVH) for accelerated rendering.&#10;&#10;Technical Highlights: C++ from scratch, Recursive Reflection/Refraction, BVH Acceleration.">
                         <div class="project-image-container">
                             <!-- Actual project screenshot/artwork (sits behind the border frame) -->
                             <img src="assets/projects/Proj4.png" alt="Project 4 Preview" class="project-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -164,7 +164,7 @@
                     </article>
 
                     <!-- Card 5 -->
-                    <article class="project-card" tabindex="0" aria-label="Project 5 Details">
+                    <article class="project-card" tabindex="0" aria-label="Project 5 Details" data-title="Combat Sandbox" data-desc="A mechanics prototype developed in Unreal Engine 5 focusing on fluid melee combat, hit stop impact effects, combo chains, and a robust lock-on camera system.&#10;&#10;Technical Highlights: C++, Blueprints, UE5, Combat Anim Blueprints, Combo State Tracking.">
                         <div class="project-image-container">
                             <!-- Actual project screenshot/artwork (sits behind the border frame) -->
                             <img src="assets/projects/Proj5.png" alt="Project 5 Preview" class="project-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -178,7 +178,7 @@
                     </article>
 
                     <!-- Card 6 -->
-                    <article class="project-card" tabindex="0" aria-label="Project 6 Details">
+                    <article class="project-card" tabindex="0" aria-label="Project 6 Details" data-title="Shader Sandbox" data-desc="A compilation of custom HLSL/GLSL pixel shaders showcasing procedural texture generation, raymarched volumetric clouds, and water flow simulations.&#10;&#10;Technical Highlights: HLSL, GLSL, Procedural Modeling, Volumetric Raymarching.">
                         <div class="project-image-container">
                             <!-- Actual project screenshot/artwork (sits behind the border frame) -->
                             <img src="assets/projects/Proj6.png" alt="Project 6 Preview" class="project-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -247,16 +247,53 @@
                     }
                 });
             }
+
+            // JavaScript Modal Logic (Open, close on backdrop, close on X)
+            const modal = document.getElementById('project-modal');
+            const closeBtn = document.getElementById('modal-close');
+            const cards = document.querySelectorAll('.project-card');
+
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const title = card.getAttribute('data-title') || 'Project Title';
+                    const desc = card.getAttribute('data-desc') || 'Project description...';
+                    
+                    modal.querySelector('.modal-title').textContent = title;
+                    modal.querySelector('.modal-desc').textContent = desc;
+                    
+                    modal.style.display = 'flex';
+                });
+            });
+
+            if (closeBtn) {
+                closeBtn.addEventListener('click', () => {
+                    modal.style.display = 'none';
+                });
+            }
+
+            if (modal) {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            }
         });
     </script>
     <!-- Project Details Modal (Hidden by default) -->
-    <div class="project-modal" id="project-modal" aria-hidden="true" role="dialog">
-        <div class="modal-overlay"></div>
-        <div class="modal-content">
-            <button class="modal-close" aria-label="Close Modal">&times;</button>
-            <div class="modal-body">
-                <h2 class="modal-title">Project Title</h2>
-                <p class="modal-desc">Detailed project description goes here...</p>
+    <div class="project-modal-overlay" id="project-modal" aria-hidden="true" role="dialog" style="display: none;">
+        <div class="project-modal-content">
+            <button class="modal-close" id="modal-close" aria-label="Close Modal">&times;</button>
+            <div class="modal-layout">
+                <!-- Left Column: Video/Slideshow placeholder -->
+                <div class="modal-left">
+                    <div class="modal-slideshow-placeholder"></div>
+                </div>
+                <!-- Right Column: Text Details -->
+                <div class="modal-right">
+                    <h2 class="modal-title">Project Title</h2>
+                    <p class="modal-desc">Detailed project description goes here...</p>
+                </div>
             </div>
         </div>
     </div>
