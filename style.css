@@ -106,7 +106,7 @@ a
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 999; /* definitive z-index above treetop overlays */
   transition: padding 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease; /* Smooth transition */
 }
 
@@ -243,8 +243,6 @@ a
   width: 100%;
   height: auto;
   display: block;
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
 }
 
 .walking-character-container 
@@ -387,18 +385,15 @@ a
   width: 100%;
   height: auto;
   display: block;
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
 }
 
 /* WATER (About Me) */
-.scene-water {
+.scene-water 
+{
   background-image: url('assets/environment/Water.png');
   background-repeat: repeat;
   background-position: center top;
   background-size: auto;
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
   padding: 100px 0;
   border-bottom: 4px solid var(--color-brown-primary);
   position: relative;
@@ -481,18 +476,17 @@ a
   max-width: 650px;
 }
 
-/* GRASS (Projects Section) */
 .scene-grass 
 {
   background-image: url('assets/environment/FullGrass.png');
   background-repeat: repeat;
   background-position: center top;
   background-size: auto;
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-  padding: 100px 0;
-  border-bottom: 4px solid var(--color-brown-primary);
+  padding: 100px 0 250px 0;
+  border-bottom: none;
   position: relative;
+  border-top: none !important;
+  border-bottom: none !important;
 }
 
 /* 3x3 Responsive Project Grid Layout */
@@ -537,8 +531,6 @@ a
   height: 100%;
   z-index: 3;
   pointer-events: none;
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
   display: block;
   object-fit: contain;
 }
@@ -575,7 +567,6 @@ a
   text-transform: uppercase;
   text-align: center;
   padding: 10px;
-  image-rendering: pixelated;
 }
 
 .project-media-fallback span 
@@ -639,8 +630,6 @@ a
   height: 100%;
   z-index: 2;
   pointer-events: none;
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
   display: block;
   object-fit: fill;
   border: none !important;
@@ -668,9 +657,9 @@ a
 .modal-right 
 {
   position: absolute;
-  top: 9.8958%;    /* 76px / 768px */
-  left: 71.7423%;  /* 980px / 1366px */
-  width: 23.426%;  /* 320px / 1366px */
+  top: 9.8958%; /* 76px / 768px */
+  left: 71.7423%; /* 980px / 1366px */
+  width: 23.426%; /* 320px / 1366px */
   height: 65.625%; /* 504px / 768px */
   display: flex;
   flex-direction: column;
@@ -727,7 +716,8 @@ a
 }
 
 /* Layer 3: Close Button (Top layer) */
-.modal-close {
+.modal-close 
+{
   position: absolute;
   top: -12px;
   right: -12px;
@@ -740,22 +730,22 @@ a
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10; /* Topmost stack depth */
+  z-index: 10;
   transition: background-color 0.2s ease;
   padding: 0;
   box-shadow: none !important;
 }
 
-.modal-close:hover {
+.modal-close:hover 
+{
   background-color: #9e7b4a;
   transform: none;
 }
 
-.modal-close img {
+.modal-close img 
+{
   width: 44px;
   height: 44px;
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
   display: block;
   flex-shrink: 0;
 }
@@ -764,7 +754,7 @@ a
 {
   .project-modal-content 
   {
-    width: 90vw; /* Take up more screen space when stacked vertically on mobile */
+    width: 90vw;
     height: auto;
     max-height: 95vh;
     display: block;
@@ -804,85 +794,91 @@ a
   }
 }
 
-/* --------------------------------------------------------------------------
-   11. SCENE FOREST & FOOTER (Contact Section)
-   -------------------------------------------------------------------------- */
-.scene-forest {
-  background-color: var(--color-forest-dark);
-  background-image: 
-    linear-gradient(135deg, var(--color-forest-deep) 25%, transparent 25%), 
-    linear-gradient(225deg, var(--color-forest-deep) 25%, transparent 25%), 
-    linear-gradient(45deg, var(--color-forest-deep) 25%, transparent 25%), 
-    linear-gradient(315deg, var(--color-forest-deep) 25%, transparent 25%);
-  background-position: 20px 0, 20px 0, 0 0, 0 0;
-  background-size: 40px 40px;
-  background-repeat: repeat;
-  padding: 120px 0 100px 0;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Forest U-shaped clearing border */
-.forest-u-border {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-left: 40px solid var(--color-forest-deep);
-  border-right: 40px solid var(--color-forest-deep);
-  border-bottom: 40px solid var(--color-forest-deep);
-  pointer-events: none;
-  z-index: 2;
-}
-
-.contact-clearing {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-  background-color: rgba(37, 93, 38, 0.85); /* Semi-transparent overlay matching the background for legibility */
-  padding: 40px 30px;
-  border: 6px solid var(--color-brown-primary);
-  outline: 4px solid var(--color-brown-dark);
-  box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.3);
+/* CONTACTS SECTION */
+.contacts-section 
+{
   position: relative;
   z-index: 5;
-}
-
-.contact-title {
-  color: var(--color-text-white);
-  font-size: 1.8rem;
-  margin-bottom: 25px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-shadow: 2px 2px 0px var(--color-brown-dark);
-}
-
-.contact-info-list {
+  background-image: url('assets/environment/Contacts.png');
+  background-size: 100% auto;
+  background-position: top center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  justify-content: center;
   align-items: center;
+  box-sizing: border-box;
+  padding-bottom: 50px;
+  overflow: hidden;
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
 }
 
-.contact-item {
-  color: var(--color-text-white);
-  font-size: 1.15rem;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.forrest-border-top 
+{
+  width: 100%;
+  position: relative;
+  overflow: visible;
+  z-index: 6;
+  margin-top: -250px;
+  border: none !important;
 }
 
-.contact-item span.label {
-  color: var(--color-brown-light);
-  font-weight: 700;
+.forest-transition,
+.forest-image 
+{
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  position: relative;
+  top: 1px;
+}
+
+.contacts-content 
+{
+  margin-left: 10%;
+  margin-top: 215px;
+  text-align: center;
+  z-index: 6;
+  color: #3b2c15;
+  max-width: 600px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.contacts-content h2 
+{
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 20px;
   text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.contact-item a:hover {
-  color: var(--color-brown-light);
+.contacts-content p 
+{
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin: 10px 0;
+  font-weight: 600;
+}
+
+.contacts-content a 
+{
+  color: #634320;
   text-decoration: underline;
+  font-weight: 700;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.contacts-content a:hover 
+{
+  color: #8c5e3c;
   transform: scale(1.02);
 }
 
@@ -895,7 +891,6 @@ a
 }
 
 /* RESPONSIVE */
-
 @media (max-width: 1024px) 
 {
   .portfolio-title 
@@ -955,7 +950,8 @@ a
     text-shadow: 2px 2px 0px var(--color-brown-light);
   }
 
-  .hero-section {
+  .hero-section 
+  {
     padding: 50px 0;
   }
 
@@ -976,16 +972,24 @@ a
     margin: 0 auto;
   }
 
-  .contact-clearing 
-  {
-    padding: 30px 15px;
-    margin: 0 15px;
+  .contacts-content {
+    margin-left: 0; /* Center aligned on smaller screens */
+    margin-top: 80px; /* Scale back margin-top to fit mobile screens */
+    padding: 10px;
   }
 
-  .contact-item 
+  .contacts-content h2 
+  {
+    font-size: 2rem;
+  }
+
+  .contacts-content p 
   {
     font-size: 1rem;
-    flex-direction: column;
-    gap: 4px;
+  }
+
+  .forrest-border-top 
+  {
+    margin-top: -120px;
   }
 }
