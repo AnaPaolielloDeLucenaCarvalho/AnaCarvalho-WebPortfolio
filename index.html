@@ -97,7 +97,7 @@
 
                 <!-- 3x3 Grid -->
                 <div class="project-grid">
-                    <!-- Card 1 -->
+                    <!-- Group Project | Corporate Ladder -->
                     <article class="project-card" tabindex="0" aria-label="Project 1 Details" data-title="Corporate Ladder" 
                         data-desc="&quot;Corporate Ladder&quot; is a game where you win by doing the most tasks or by smashing a chair over a coworker to steal theirs!&#10;I'm really proud of the multiplayer setup and task spawning." 
                         data-bg="assets/projects/Proj1BG.png" 
@@ -123,7 +123,7 @@
                         </div>
                     </article>
 
-                    <!-- Card 3 -->
+                    <!-- PAP | EMOTIVE -->
                     <article class="project-card" tabindex="0" aria-label="Project 3 Details" data-title="PAP - EMOTIVE" 
                         data-desc="For my final project at EPI (PAP), I built a VR experience where players explore different environments designed to trigger specific emotions.&#10;I really loved exploring how virtual spaces can connect us more deeply to our feelings!" 
                         data-bg="assets/projects/Proj3BG.png"
@@ -148,7 +148,7 @@
                         </div>
                     </article>
 
-                    <!-- Card 5 -->
+                    <!-- Unity | Clutch Patch -->
                     <article class="project-card" tabindex="0" aria-label="Project 5 Details" data-title="CLUTCH PATCH" 
                         data-desc="For this L'Oréal Garnier project, we created a &quot;streamer-first&quot; stealth game!&#10;I'm really proud of the Twitch integration for this project, we bridged an external IRC API with Unity to turn live chat directly into game events." 
                         data-bg="assets/projects/Proj5BG.png"
@@ -162,7 +162,7 @@
                         </div>
                     </article>
 
-                    <!-- Card 6 -->
+                    <!-- Unreal | Beat Bound -->
                     <article class="project-card" tabindex="0" aria-label="Project 6 Details" data-title="BEAT BOUND" 
                         data-desc="Based on the prompts &quot;Jump&quot; and &quot;Depend,&quot; &quot;Beat Bound&quot; is an Unreal Engine game where your success relies entirely on the music!&#10;&#10;My main focus was syncing the parkour platforms to the audio and bringing the rhythm-based dance battles to life." 
                         data-bg="assets/projects/Proj6BG.png"
@@ -190,15 +190,15 @@
                         </div>
                     </article>
 
-                    <!-- Card 8 -->
-                    <article class="project-card" tabindex="0" aria-label="Project 8 Details" data-title="Stardew Mod" 
-                        data-desc="A custom mod or game prototype inspired by Stardew Valley. Implements farming grids, tile-based player movement, crop growth cycles, and inventory management." 
+                    <!-- Programming2 | Stardew Valley -->
+                    <article class="project-card" tabindex="0" aria-label="Project 8 Details" data-title="STARDEW VALLEY" 
+                        data-desc="For one of my classes at DAE, I recreated the mine system from Stardew Valley from scratch using C++.&#10;Looking back, there is a lot I would do differently today! Still, it was a huge stepping stone for my growth as a developer." 
                         data-bg="assets/projects/Proj8BG.png"
-                        data-media="assets/projects/Proj8 Stardew/1Vid.mp4,assets/projects/Proj8 Stardew/2Img.png,assets/projects/Proj8 Stardew/3Img.png,assets/projects/Proj8 Stardew/4Img.png">
+                        data-media="https://youtu.be/bDuCVewZcgI,assets/projects/Proj8 Stardew/1.png,assets/projects/Proj8 Stardew/2.png,assets/projects/Proj8 Stardew/3.png">
                         <div class="project-image-container">
-                            <img src="assets/projects/CoverProj8.png" alt="Stardew Mod Preview" class="project-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <img src="assets/projects/CoverProj8.png" alt="STARDEW VALLEY MINES Preview" class="project-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                             <div class="project-media-fallback project-color-8">
-                                <span>Stardew Mod</span>
+                                <span>STARDEW VALLEY MINES</span>
                             </div>
                             <img src="assets/projects/BorderProj8.png" alt="Project 8 Frame" class="project-frame">
                         </div>
@@ -348,7 +348,8 @@
                              
                              const showMedia = (index) => {
                                  mediaWrapper.innerHTML = '';
-                                 const file = mediaList[index].trim();
+                                 const rawFile = mediaList[index].trim();
+                                 const file = rawFile.startsWith('http') ? rawFile : encodeURI(rawFile);
                                  if (file.includes('youtube.com') || file.includes('youtu.be')) 
                                  {
                                      const iframe = document.createElement('iframe');
