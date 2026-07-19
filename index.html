@@ -97,13 +97,16 @@
 
                 <!-- 3x3 Grid -->
                 <div class="project-grid">
-                    
                     <!-- Card 1 -->
-                    <article class="project-card" tabindex="0" aria-label="Project 1 Details" data-title="Dual Rasterizer" data-desc="Developed for my Graphics Programming class, this project was designed to explore the low-level maths of 3D computer graphics. It features 2 rendering pipelines, allowing for a side-by-side visual and performance comparison between a software rasterizer and a modern hardware accelerated DirectX 11 rasterizer.&#10;&#10;Technical Highlights: Software Pipeline (CPU), DirectX 11 Pipeline (GPU), Unified Architecture (unified C++ framework that allows swapping between the two methods)." data-bg="assets/projects/Proj1BG.png">
+                    <article class="project-card" tabindex="0" aria-label="Project 1 Details" data-title="Corporate Ladder" 
+                        data-desc="&quot;Corporate Ladder&quot; is a game where you win by doing the most tasks or by smashing a chair over a coworker to steal theirs!&#10;I'm really proud of the multiplayer setup and task spawning." 
+                        data-bg="assets/projects/Proj1BG.png" 
+                        data-link="https://lara-gg.itch.io/gp19projectname" 
+                        data-media="https://youtu.be/acEEgbHHk-k,assets/projects/Proj1 GameProj/1.png,assets/projects/Proj1 GameProj/2.png,assets/projects/Proj1 GameProj/3.png,assets/projects/Proj1 GameProj/4.png,assets/projects/Proj1 GameProj/5.png,assets/projects/Proj1 GameProj/6.png,assets/projects/Proj1 GameProj/7.png,assets/projects/Proj1 GameProj/8.png,assets/projects/Proj1 GameProj/9.png">
                         <div class="project-image-container">
-                            <img src="assets/projects/Proj1.png" alt="Project 1 Preview" class="project-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <img src="assets/projects/CoverProj1.png" alt="Corporate Ladder Preview" class="project-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                             <div class="project-media-fallback project-color-1">
-                                <span>Project 1</span>
+                                <span>Corporate Ladder</span>
                             </div>
                             <img src="assets/projects/BorderProj1.png" alt="Project 1 Frame" class="project-frame">
                         </div>
@@ -123,7 +126,7 @@
                     <!-- Card 3 -->
                     <article class="project-card" tabindex="0" aria-label="Project 3 Details" data-title="Retro Quest" data-desc="A classic 2D adventure platformer created in Unity. Featuring custom physics controllers, a responsive inventory system, state-machine based enemy AI, and retro screen shaders.&#10;&#10;Technical Highlights: C#, Unity 2D, Finite State Machine AI, Screen Shaders." data-bg="assets/projects/Proj3BG.png">
                         <div class="project-image-container">
-                            <img src="assets/projects/Proj3.png" alt="Project 3 Preview" class="project-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <img src="assets/projects/CoverProj3.png" alt="Project 3 Preview" class="project-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                             <div class="project-media-fallback project-color-3">
                                 <span>Project 3</span>
                             </div>
@@ -145,7 +148,7 @@
                     <!-- Card 5 -->
                     <article class="project-card" tabindex="0" aria-label="Project 5 Details" data-title="Combat Sandbox" data-desc="A mechanics prototype developed in Unreal Engine 5 focusing on fluid melee combat, hit stop impact effects, combo chains, and a robust lock-on camera system.&#10;&#10;Technical Highlights: C++, Blueprints, UE5, Combat Anim Blueprints, Combo State Tracking." data-bg="assets/projects/Proj5BG.png">
                         <div class="project-image-container">
-                            <img src="assets/projects/Proj5.png" alt="Project 5 Preview" class="project-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <img src="assets/projects/CoverProj5.png" alt="Project 5 Preview" class="project-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                             <div class="project-media-fallback project-color-5">
                                 <span>Project 5</span>
                             </div>
@@ -156,7 +159,7 @@
                     <!-- Card 6 -->
                     <article class="project-card" tabindex="0" aria-label="Project 6 Details" data-title="Shader Sandbox" data-desc="A compilation of custom HLSL/GLSL pixel shaders showcasing procedural texture generation, raymarched volumetric clouds, and water flow simulations.&#10;&#10;Technical Highlights: HLSL, GLSL, Procedural Modeling, Volumetric Raymarching." data-bg="assets/projects/Proj6BG.png">
                         <div class="project-image-container">
-                            <img src="assets/projects/Proj6.png" alt="Project 6 Preview" class="project-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <img src="assets/projects/CoverProj6.png" alt="Project 6 Preview" class="project-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                             <div class="project-media-fallback project-color-6">
                                 <span>Project 6</span>
                             </div>
@@ -213,6 +216,20 @@
                 });
             }
 
+            function getYouTubeEmbedUrl(url) {
+                let videoId = '';
+                if (url.includes('youtu.be/')) {
+                    videoId = url.split('youtu.be/')[1].split(/[?#]/)[0];
+                } else if (url.includes('youtube.com/watch')) {
+                    const urlParams = new URLSearchParams(url.split('?')[1]);
+                    videoId = urlParams.get('v');
+                } else if (url.includes('youtube.com/embed/')) {
+                    videoId = url.split('youtube.com/embed/')[1].split(/[?#]/)[0];
+                }
+                // Use youtube-nocookie.com to prevent cookie blockers and resolve Error 153
+                return videoId ? `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&enablejsapi=1` : url;
+            }
+
             const modal = document.getElementById('project-modal');
             const closeBtn = document.getElementById('modal-close');
             const cards = document.querySelectorAll('.project-card');
@@ -224,6 +241,8 @@
                     const title = card.getAttribute('data-title') || 'Project Title';
                     const desc = card.getAttribute('data-desc') || 'Project description...';
                     const bg = card.getAttribute('data-bg') || '';
+                    const link = card.getAttribute('data-link') || '';
+                    const media = card.getAttribute('data-media') || '';
                     
                     modal.querySelector('.modal-title').textContent = title;
                     modal.querySelector('.modal-desc').textContent = desc;
@@ -241,17 +260,129 @@
                             bgImg.style.display = 'none';
                         }
                     }
+
+                    // External Links Integration
+                    const linkBtn = modal.querySelector('.modal-link-button');
+                    if (linkBtn) 
+                    {
+                        if (link) 
+                        {
+                            linkBtn.href = link;
+                            linkBtn.style.display = 'inline-block';
+                        } else 
+                        {
+                            linkBtn.href = '';
+                            linkBtn.style.display = 'none';
+                        }
+                    }
+
+                    // Dynamic Media Slideshow Integration
+                    const slideshowPlaceholder = modal.querySelector('.modal-slideshow-placeholder');
+                    if (slideshowPlaceholder) 
+                    {
+                        slideshowPlaceholder.innerHTML = ''; // Reset container
+                        if (media) 
+                        {
+                            const mediaList = media.split(',');
+                            let currentIndex = 0;
+
+                            const mediaWrapper = document.createElement('div');
+                            mediaWrapper.style.width = '100%';
+                            mediaWrapper.style.height = '100%';
+                            mediaWrapper.style.display = 'flex';
+                            mediaWrapper.style.alignItems = 'center';
+                            mediaWrapper.style.justifyContent = 'center';
+                            slideshowPlaceholder.appendChild(mediaWrapper);
+                             
+                             const showMedia = (index) => {
+                                 mediaWrapper.innerHTML = '';
+                                 const file = mediaList[index].trim();
+                                 if (file.includes('youtube.com') || file.includes('youtu.be')) 
+                                 {
+                                     const iframe = document.createElement('iframe');
+                                     iframe.src = getYouTubeEmbedUrl(file);
+                                     iframe.className = 'slideshow-media';
+                                     iframe.frameBorder = '0';
+                                     iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                                     iframe.referrerPolicy = 'strict-origin-when-cross-origin'; // Bypass YouTube Error 153
+                                     iframe.allowFullscreen = true;
+                                     mediaWrapper.appendChild(iframe);
+                                 } 
+                                else if (file.toLowerCase().endsWith('.mp4')) 
+                                {
+                                    const video = document.createElement('video');
+                                    video.src = file;
+                                    video.controls = true;
+                                    video.autoplay = true; // Auto-play video
+                                    video.muted = true; // Required by modern browsers for autoplay to function
+                                    video.playsInline = true;
+                                    video.className = 'slideshow-media';
+                                    mediaWrapper.appendChild(video);
+                                    video.play().catch(e => console.log("Autoplay prevented:", e));
+                                } else 
+                                {
+                                    const img = document.createElement('img');
+                                    img.src = file;
+                                    img.className = 'slideshow-media';
+                                    mediaWrapper.appendChild(img);
+                                }
+                            };
+
+                            if (mediaList.length > 1) 
+                            {
+                                // Prev Navigation Button
+                                const prevBtn = document.createElement('button');
+                                prevBtn.className = 'slideshow-btn slideshow-prev';
+                                const prevImg = document.createElement('img');
+                                prevImg.src = 'assets/projects/Arrow.png';
+                                prevImg.alt = 'Previous Slide';
+                                prevBtn.appendChild(prevImg);
+                                prevBtn.addEventListener('click', (e) => {
+                                    e.stopPropagation();
+                                    const currVideo = mediaWrapper.querySelector('video');
+                                    if (currVideo) currVideo.pause();
+                                    currentIndex = (currentIndex - 1 + mediaList.length) % mediaList.length;
+                                    showMedia(currentIndex);
+                                });
+                                slideshowPlaceholder.appendChild(prevBtn);
+
+                                // Next Navigation Button
+                                const nextBtn = document.createElement('button');
+                                nextBtn.className = 'slideshow-btn slideshow-next';
+                                nextBtn.alt = 'Next Slide';
+                                const nextImg = document.createElement('img');
+                                nextImg.src = 'assets/projects/Arrow.png';
+                                nextBtn.appendChild(nextImg);
+                                nextBtn.addEventListener('click', (e) => {
+                                    e.stopPropagation();
+                                    const currVideo = mediaWrapper.querySelector('video');
+                                    if (currVideo) currVideo.pause();
+                                    currentIndex = (currentIndex + 1) % mediaList.length;
+                                    showMedia(currentIndex);
+                                });
+                                slideshowPlaceholder.appendChild(nextBtn);
+                            }
+
+                            showMedia(0);
+                        }
+                    }
                     
                     modal.style.display = 'flex';
                 });
             });
 
+            const closeModal = () => {
+                modal.style.display = 'none';
+                const slideshowPlaceholder = modal.querySelector('.modal-slideshow-placeholder');
+                if (slideshowPlaceholder) 
+                {
+                    slideshowPlaceholder.innerHTML = ''; // Clean up media content, stopping all playback
+                }
+            };
+
             if (closeBtn) 
             {
-                closeBtn.addEventListener('click', () => 
-                {
-                    modal.style.display = 'none';
-                });
+                closeBtn.addEventListener('click', closeModal);
             }
 
             if (modal) 
@@ -260,7 +391,7 @@
                 {
                     if (e.target === modal) 
                     {
-                        modal.style.display = 'none';
+                        closeModal();
                     }
                 });
             }
@@ -283,6 +414,7 @@
             <div class="modal-right">
                 <h2 class="modal-title">Project Title</h2>
                 <p class="modal-desc">Detailed project description goes here...</p>
+                <a href="" class="modal-link-button" target="_blank" rel="noopener noreferrer" style="display: none;">Play on Itch.io</a>
             </div>
         </div>
     </div>

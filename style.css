@@ -541,11 +541,17 @@ a
   position: absolute;
   top: 6px;
   left: 66px;
-  width: 212px;
-  height: 212px;
+  width: 53px;  /* Downsample to 1/4 of resolution (53px) to force blocky pixelation */
+  height: 53px;
+  transform: scale(4); /* Scale back up to 212px with nearest-neighbor filtering */
+  transform-origin: top left;
   z-index: 1;
   object-fit: cover;
   display: block;
+  image-rendering: -moz-crisp-edges;         /* Firefox */
+  image-rendering: -webkit-optimize-contrast; /* Safari / Webkit */
+  image-rendering: pixelated;                 /* Chrome / Blink */
+  image-rendering: crisp-edges;               /* Standard */
 }
 
 /* Fallback box shown if ProjX.png fails to load */
@@ -641,7 +647,7 @@ a
 .modal-slideshow-placeholder 
 {
   position: absolute;
-  top: 9.8958%; /* 76px / 768px */
+  top: 9.375%; /* 72px / 768px (shifted up to align with background hole) */
   left: 5.5637%; /* 76px / 1366px */
   width: 63.2504%; /* 864px / 1366px */
   height: 65.625%; /* 504px / 768px */
@@ -657,15 +663,15 @@ a
 .modal-right 
 {
   position: absolute;
-  top: 9.8958%; /* 76px / 768px */
-  left: 71.7423%; /* 980px / 1366px */
-  width: 23.426%; /* 320px / 1366px */
+  top: 9.375%; /* 72px / 768px (aligned vertically with slideshow) */
+  left: 70.8%; /* Moved slightly closer to the slideshow (was 71.7423%) */
+  width: 24.368%; /* Expanded slightly to maintain right alignment (was 23.426%) */
   height: 65.625%; /* 504px / 768px */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   overflow-y: auto;
-  padding: 20px; /* Spacing for text comfort inside box */
+  padding: 0 20px 20px 20px; /* Top padding is 0 to align title perfectly with slideshow top */
   box-sizing: border-box;
   z-index: 3;
   border: none !important;
@@ -702,7 +708,7 @@ a
   font-size: 2rem;
   font-weight: 800;
   color: #ffffff; /* White text readability */
-  margin-top: 0;
+  margin-top: -8px; /* Shifted up slightly to align perfectly with top of slideshow */
   margin-bottom: 15px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -715,6 +721,96 @@ a
   color: #ffffff; /* White text readability */
   font-weight: 500;
   white-space: pre-wrap;
+}
+
+/* Custom external link text inside modal */
+.modal-link-button {
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: 15px; /* Spacing from description text */
+  color: #ffffff !important;
+  text-decoration: underline;
+  font-weight: 700;
+  font-size: 1.15rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+.modal-link-button:hover {
+  color: #3b2c15 !important; /* Accent dark brown color on hover */
+  transform: scale(1.03);
+}
+
+/* Slideshow elements inside the modal-slideshow-placeholder */
+.slideshow-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover container completely, filling all black spaces evenly */
+  display: block;
+}
+
+.slideshow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  background-color: #bd9d55; /* Sourced from X button */
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  transition: background-color 0.2s ease;
+  padding: 0;
+}
+
+.slideshow-btn img {
+  width: 44px;
+  height: 44px;
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.slideshow-btn:hover {
+  background-color: #9d7a47; /* Sourced from X hover state */
+}
+
+.slideshow-prev {
+  left: 15px;
+}
+
+.slideshow-next {
+  right: 15px;
+}
+
+.slideshow-next img {
+  transform: scaleX(-1); /* Mirror Arrow.png horizontally to face right (outwards) */
+}
+
+.slideshow-dots {
+  position: absolute;
+  bottom: 15px;
+  display: flex;
+  gap: 8px;
+  z-index: 5;
+}
+
+.slideshow-dot {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border: 2px solid #4a2c11;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.slideshow-dot.active {
+  background-color: #bd9d55;
 }
 
 /* Layer 3: Close Button (Top layer) */
