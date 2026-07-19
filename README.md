@@ -6,7 +6,7 @@ As a game development student at DAE (Howest), I wanted to make sure my projects
 
 **[View the Website Here!](https://anapaoliellodelucenacarvalho.github.io/AnaCarvalho-WebPortfolio/)**
 
-**I also built an [interactive, game version of my portfolio](https://github.com/AnaPaolielloDeLucenaCarvalho/AnaCarvalho-GamePortfolio.git)!**
+**I also built an [interactive, game version of my portfolio](https://github.com/AnaPaolielloDeLucenaCarvalho/AnaCarvalho-GamePortfolio)!**
 
 ---
 
