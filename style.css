@@ -106,8 +106,8 @@ a
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 999; /* definitive z-index above treetop overlays */
-  transition: padding 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease; /* Smooth transition */
+  z-index: 999;
+  transition: padding 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
 }
 
 .header-wrapper .container 
@@ -266,7 +266,6 @@ a
   height: 100%;
   z-index: auto;
 }
-
 
 .walking-character 
 {
@@ -513,7 +512,35 @@ a
   transform: translateY(-8px);
 }
 
-/* Container holding the layered elements */
+.project-card::after 
+{
+  content: attr(data-title);
+  position: absolute;
+  top: 6px;
+  left: 66px;
+  width: 212px;
+  height: 212px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  padding: 15px;
+  box-sizing: border-box;
+  z-index: 2;
+  pointer-events: none;
+  background-color: rgba(0, 0, 0, 0.55);
+  transition: background-color 0.2s ease;
+}
+
+.project-card:hover::after
+{
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
 .project-image-container 
 {
   width: 100%;
@@ -521,7 +548,6 @@ a
   position: relative;
 }
 
-/* Frame graphic sits on top */
 .project-frame 
 {
   position: absolute;
@@ -535,26 +561,24 @@ a
   object-fit: contain;
 }
 
-/* Screenshot image sits behind */
 .project-media 
 {
   position: absolute;
   top: 6px;
   left: 66px;
-  width: 53px;  /* Downsample to 1/4 of resolution (53px) to force blocky pixelation */
+  width: 53px; 
   height: 53px;
-  transform: scale(4); /* Scale back up to 212px with nearest-neighbor filtering */
+  transform: scale(4);
   transform-origin: top left;
   z-index: 1;
   object-fit: cover;
   display: block;
-  image-rendering: -moz-crisp-edges;         /* Firefox */
-  image-rendering: -webkit-optimize-contrast; /* Safari / Webkit */
-  image-rendering: pixelated;                 /* Chrome / Blink */
-  image-rendering: crisp-edges;               /* Standard */
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
 }
 
-/* Fallback box shown if ProjX.png fails to load */
 .project-media-fallback 
 {
   position: absolute;
@@ -577,11 +601,7 @@ a
 
 .project-media-fallback span 
 {
-  background-color: rgba(255, 255, 255, 0.85);
-  padding: 6px 12px;
-  border: 3px solid var(--color-brown-primary);
-  border-radius: 4px;
-  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.15);
+  display: none !important;
 }
 
 .project-color-1 { background-color: #f3a683; }
@@ -615,8 +635,8 @@ a
 .project-modal-content 
 {
   position: relative;
-  width: 70vw; /* Scaled down width so backdrop is more visible */
-  max-width: 1100px; /* Capped max-width for high-res monitors */
+  width: 70vw; 
+  max-width: 1100px;
   aspect-ratio: 1366 / 768;
   height: auto;
   box-sizing: border-box;
@@ -649,7 +669,7 @@ a
 .modal-slideshow-placeholder 
 {
   position: absolute;
-  top: 9.375%; /* 72px / 768px (shifted up to align with background hole) */
+  top: 9.375%; /* 72px / 768px */
   left: 5.5637%; /* 76px / 1366px */
   width: 63.2504%; /* 864px / 1366px */
   height: 65.625%; /* 504px / 768px */
@@ -665,22 +685,22 @@ a
 .modal-right 
 {
   position: absolute;
-  top: 9.375%; /* 72px / 768px (aligned vertically with slideshow) */
-  left: 70.8%; /* Moved slightly closer to the slideshow (was 71.7423%) */
-  width: 24.368%; /* Expanded slightly to maintain right alignment (was 23.426%) */
-  height: 65.625%; /* 504px / 768px */
+  top: 9.375%;
+  left: 70.8%;
+  width: 24.368%;
+  height: 65.625%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   overflow-y: auto;
-  padding: 0 20px 20px 20px; /* Top padding is 0 to align title perfectly with slideshow top */
+  padding: 0 20px 20px 20px;
   box-sizing: border-box;
   z-index: 3;
   border: none !important;
   box-shadow: none !important;
   outline: none !important;
-  background-color: #96d473; /* Green background box behind text */
-  color: #ffffff; /* Default white text */
+  background-color: #96d473;
+  color: #ffffff;
 }
 
 /* Scrollbar */
@@ -709,8 +729,8 @@ a
 {
   font-size: 2rem;
   font-weight: 800;
-  color: #ffffff; /* White text readability */
-  margin-top: -8px; /* Shifted up slightly to align perfectly with top of slideshow */
+  color: #ffffff; 
+  margin-top: -8px;
   margin-bottom: 15px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -720,16 +740,17 @@ a
 {
   font-size: 1.05rem;
   line-height: 1.6;
-  color: #ffffff; /* White text readability */
+  color: #ffffff;
   font-weight: 500;
   white-space: pre-wrap;
 }
 
 /* Custom external link text inside modal */
-.modal-link-button {
+.modal-link-button 
+{
   display: inline-block;
   align-self: flex-start;
-  margin-top: 15px; /* Spacing from description text */
+  margin-top: 15px;
   color: #ffffff !important;
   text-decoration: underline;
   font-weight: 700;
@@ -738,33 +759,34 @@ a
   cursor: pointer;
 }
 
-.modal-link-button:hover {
-  color: #3b2c15 !important; /* Accent dark brown color on hover */
+.modal-link-button:hover 
+{
+  color: #3b2c15 !important;
   transform: scale(1.03);
 }
 
-/* Slideshow elements inside the modal-slideshow-placeholder */
 .slideshow-media {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Cover container completely, filling all black spaces evenly */
+  object-fit: cover;
   display: block;
 }
 
-/* YouTube iframe specific scale to cover aspect-ratio differences and remove black letterbox gaps */
-iframe.slideshow-media {
+iframe.slideshow-media 
+{
   transform: scale(1.05);
   transform-origin: center center;
   border: none;
 }
 
-.slideshow-btn {
+.slideshow-btn 
+{
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   width: 36px;
   height: 36px;
-  background-color: #bd9d55; /* Sourced from X button */
+  background-color: #bd9d55;
   border: none;
   outline: none;
   cursor: pointer;
@@ -776,7 +798,8 @@ iframe.slideshow-media {
   padding: 0;
 }
 
-.slideshow-btn img {
+.slideshow-btn img 
+{
   width: 44px;
   height: 44px;
   display: block;
@@ -784,23 +807,28 @@ iframe.slideshow-media {
   image-rendering: crisp-edges;
 }
 
-.slideshow-btn:hover {
-  background-color: #9d7a47; /* Sourced from X hover state */
+.slideshow-btn:hover 
+{
+  background-color: #9d7a47;
 }
 
-.slideshow-prev {
+.slideshow-prev 
+{
   left: 15px;
 }
 
-.slideshow-next {
+.slideshow-next 
+{
   right: 15px;
 }
 
-.slideshow-next img {
-  transform: scaleX(-1); /* Mirror Arrow.png horizontally to face right (outwards) */
+.slideshow-next img 
+{
+  transform: scaleX(-1);
 }
 
-.slideshow-dots {
+.slideshow-dots 
+{
   position: absolute;
   bottom: 15px;
   display: flex;
@@ -808,7 +836,8 @@ iframe.slideshow-media {
   z-index: 5;
 }
 
-.slideshow-dot {
+.slideshow-dot 
+{
   width: 10px;
   height: 10px;
   background-color: rgba(255, 255, 255, 0.4);
@@ -1082,9 +1111,10 @@ iframe.slideshow-media {
     margin: 0 auto;
   }
 
-  .contacts-content {
-    margin-left: 0; /* Center aligned on smaller screens */
-    margin-top: 80px; /* Scale back margin-top to fit mobile screens */
+  .contacts-content 
+  {
+    margin-left: 0;
+    margin-top: 80px;
     padding: 10px;
   }
 

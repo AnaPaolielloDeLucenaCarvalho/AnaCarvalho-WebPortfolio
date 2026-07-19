@@ -262,7 +262,8 @@
                 if (window.scrollY > 10) 
                 {
                     header.classList.add('scrolled');
-                } else 
+                } 
+                else 
                 {
                     header.classList.remove('scrolled');
                 }
@@ -272,7 +273,8 @@
                     if (window.scrollY > 10) 
                     {
                         header.classList.add('scrolled');
-                    } else 
+                    } 
+                    else 
                     {
                         header.classList.remove('scrolled');
                     }
@@ -285,11 +287,13 @@
                 if (url.includes('youtu.be/')) 
                 {
                     videoId = url.split('youtu.be/')[1].split(/[?#]/)[0];
-                } else if (url.includes('youtube.com/watch')) 
+                } 
+                else if (url.includes('youtube.com/watch')) 
                 {
                     const urlParams = new URLSearchParams(url.split('?')[1]);
                     videoId = urlParams.get('v');
-                } else if (url.includes('youtube.com/embed/'))
+                } 
+                else if (url.includes('youtube.com/embed/'))
                 {
                     videoId = url.split('youtube.com/embed/')[1].split(/[?#]/)[0];
                 }
@@ -320,7 +324,8 @@
                         {
                             bgImg.src = bg;
                             bgImg.style.display = 'block';
-                        } else 
+                        } 
+                        else 
                         {
                             bgImg.src = '';
                             bgImg.style.display = 'none';
@@ -336,10 +341,12 @@
                             if (link.includes('github.com')) 
                             {
                                 linkBtn.textContent = 'View on GitHub';
-                            } else if (link.includes('itch.io')) 
+                            } 
+                            else if (link.includes('itch.io')) 
                             {
                                 linkBtn.textContent = 'Play on Itch.io';
-                            } else 
+                            } 
+                            else 
                             {
                                 linkBtn.textContent = 'Visit Link';
                             }
@@ -395,7 +402,8 @@
                                     video.className = 'slideshow-media';
                                     mediaWrapper.appendChild(video);
                                     video.play().catch(e => console.log("Autoplay prevented:", e));
-                                } else 
+                                } 
+                                else 
                                 {
                                     const img = document.createElement('img');
                                     img.src = file;
