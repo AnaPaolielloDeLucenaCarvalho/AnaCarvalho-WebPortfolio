@@ -176,6 +176,48 @@
                         </div>
                     </article>
 
+                    <!-- Card 7 -->
+                    <article class="project-card" tabindex="0" aria-label="Project 7 Details" data-title="Project 7" 
+                        data-desc="Project description placeholder. Click to edit and add your game description, mechanics details, and technical highlights here." 
+                        data-bg="assets/projects/Proj7BG.png"
+                        data-media="">
+                        <div class="project-image-container">
+                            <img src="assets/projects/CoverProj7.png" alt="Project 7 Preview" class="project-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="project-media-fallback project-color-7">
+                                <span>Project 7</span>
+                            </div>
+                            <img src="assets/projects/BorderProj7.png" alt="Project 7 Frame" class="project-frame">
+                        </div>
+                    </article>
+
+                    <!-- Card 8 -->
+                    <article class="project-card" tabindex="0" aria-label="Project 8 Details" data-title="Stardew Mod" 
+                        data-desc="A custom mod or game prototype inspired by Stardew Valley. Implements farming grids, tile-based player movement, crop growth cycles, and inventory management." 
+                        data-bg="assets/projects/Proj8BG.png"
+                        data-media="assets/projects/Proj8 Stardew/1Vid.mp4,assets/projects/Proj8 Stardew/2Img.png,assets/projects/Proj8 Stardew/3Img.png,assets/projects/Proj8 Stardew/4Img.png">
+                        <div class="project-image-container">
+                            <img src="assets/projects/CoverProj8.png" alt="Stardew Mod Preview" class="project-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="project-media-fallback project-color-8">
+                                <span>Stardew Mod</span>
+                            </div>
+                            <img src="assets/projects/BorderProj8.png" alt="Project 8 Frame" class="project-frame">
+                        </div>
+                    </article>
+
+                    <!-- Card 9 -->
+                    <article class="project-card" tabindex="0" aria-label="Project 9 Details" data-title="Project 9" 
+                        data-desc="Project description placeholder. Click to edit and add your game description, mechanics details, and technical highlights here." 
+                        data-bg="assets/projects/Proj9BG.png"
+                        data-media="">
+                        <div class="project-image-container">
+                            <img src="assets/projects/CoverProj9.png" alt="Project 9 Preview" class="project-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="project-media-fallback project-color-9">
+                                <span>Project 9</span>
+                            </div>
+                            <img src="assets/projects/BorderProj9.png" alt="Project 9 Frame" class="project-frame">
+                        </div>
+                    </article>
+
                 </div>
             </div>
         </section>
@@ -225,17 +267,20 @@
                 });
             }
 
-            function getYouTubeEmbedUrl(url) {
+            function getYouTubeEmbedUrl(url) 
+            {
                 let videoId = '';
-                if (url.includes('youtu.be/')) {
+                if (url.includes('youtu.be/')) 
+                {
                     videoId = url.split('youtu.be/')[1].split(/[?#]/)[0];
-                } else if (url.includes('youtube.com/watch')) {
+                } else if (url.includes('youtube.com/watch')) 
+                {
                     const urlParams = new URLSearchParams(url.split('?')[1]);
                     videoId = urlParams.get('v');
-                } else if (url.includes('youtube.com/embed/')) {
+                } else if (url.includes('youtube.com/embed/'))
+                {
                     videoId = url.split('youtube.com/embed/')[1].split(/[?#]/)[0];
                 }
-                // Use youtube-nocookie.com to prevent cookie blockers and resolve Error 153
                 return videoId ? `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&enablejsapi=1` : url;
             }
 
@@ -270,7 +315,6 @@
                         }
                     }
 
-                    // External Links Integration
                     const linkBtn = modal.querySelector('.modal-link-button');
                     if (linkBtn) 
                     {
@@ -285,11 +329,10 @@
                         }
                     }
 
-                    // Dynamic Media Slideshow Integration
                     const slideshowPlaceholder = modal.querySelector('.modal-slideshow-placeholder');
                     if (slideshowPlaceholder) 
                     {
-                        slideshowPlaceholder.innerHTML = ''; // Reset container
+                        slideshowPlaceholder.innerHTML = '';
                         if (media) 
                         {
                             const mediaList = media.split(',');
@@ -313,7 +356,7 @@
                                      iframe.className = 'slideshow-media';
                                      iframe.frameBorder = '0';
                                      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-                                     iframe.referrerPolicy = 'strict-origin-when-cross-origin'; // Bypass YouTube Error 153
+                                     iframe.referrerPolicy = 'strict-origin-when-cross-origin';
                                      iframe.allowFullscreen = true;
                                      mediaWrapper.appendChild(iframe);
                                  } 
@@ -322,8 +365,8 @@
                                     const video = document.createElement('video');
                                     video.src = file;
                                     video.controls = true;
-                                    video.autoplay = true; // Auto-play video
-                                    video.muted = true; // Required by modern browsers for autoplay to function
+                                    video.autoplay = true;
+                                    video.muted = false;
                                     video.playsInline = true;
                                     video.className = 'slideshow-media';
                                     mediaWrapper.appendChild(video);
@@ -339,14 +382,14 @@
 
                             if (mediaList.length > 1) 
                             {
-                                // Prev Navigation Button
                                 const prevBtn = document.createElement('button');
                                 prevBtn.className = 'slideshow-btn slideshow-prev';
                                 const prevImg = document.createElement('img');
                                 prevImg.src = 'assets/projects/Arrow.png';
                                 prevImg.alt = 'Previous Slide';
                                 prevBtn.appendChild(prevImg);
-                                prevBtn.addEventListener('click', (e) => {
+                                prevBtn.addEventListener('click', (e) => 
+                                {
                                     e.stopPropagation();
                                     const currVideo = mediaWrapper.querySelector('video');
                                     if (currVideo) currVideo.pause();
@@ -355,14 +398,14 @@
                                 });
                                 slideshowPlaceholder.appendChild(prevBtn);
 
-                                // Next Navigation Button
                                 const nextBtn = document.createElement('button');
                                 nextBtn.className = 'slideshow-btn slideshow-next';
                                 nextBtn.alt = 'Next Slide';
                                 const nextImg = document.createElement('img');
                                 nextImg.src = 'assets/projects/Arrow.png';
                                 nextBtn.appendChild(nextImg);
-                                nextBtn.addEventListener('click', (e) => {
+                                nextBtn.addEventListener('click', (e) => 
+                                {
                                     e.stopPropagation();
                                     const currVideo = mediaWrapper.querySelector('video');
                                     if (currVideo) currVideo.pause();
@@ -380,12 +423,13 @@
                 });
             });
 
-            const closeModal = () => {
+            const closeModal = () => 
+            {
                 modal.style.display = 'none';
                 const slideshowPlaceholder = modal.querySelector('.modal-slideshow-placeholder');
                 if (slideshowPlaceholder) 
                 {
-                    slideshowPlaceholder.innerHTML = ''; // Clean up media content, stopping all playback
+                    slideshowPlaceholder.innerHTML = '';
                 }
             };
 
@@ -410,13 +454,13 @@
     <!-- Project Details -->
     <div class="project-modal-overlay" id="project-modal" aria-hidden="true" role="dialog" style="display: none;">
         <div class="project-modal-content">
-            <!-- Layer 1: Slideshow (Bottom) -->
+            <!-- Slideshow (Bottom) -->
             <div class="modal-slideshow-placeholder"></div>
             
-            <!-- Layer 2: Background (Middle) -->
+            <!-- Background (Middle) -->
             <img src="" alt="Project Backdrop Frame" class="modal-bg-image">
 
-            <!-- Layer 3: Text + Close Button (Top) -->
+            <!-- Text + Close Button (Top) -->
             <button class="modal-close" id="modal-close" aria-label="Close Modal">
                 <img src="assets/projects/X.png" alt="Close Modal">
             </button>

@@ -584,13 +584,15 @@ a
   box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
-/* Colored placeholder tones behind border frames */
 .project-color-1 { background-color: #f3a683; }
 .project-color-2 { background-color: #f7d794; }
 .project-color-3 { background-color: #778beb; }
 .project-color-4 { background-color: #786fa6; }
 .project-color-5 { background-color: #cf6a87; }
 .project-color-6 { background-color: #ea8685; }
+.project-color-7 { background-color: #3dc1d3; }
+.project-color-8 { background-color: #f78fb3; }
+.project-color-9 { background-color: #e15f41; }
 
 /* PROJECT MODAL (Pop-up Overlay) */
 .project-modal-overlay 
