@@ -749,6 +749,13 @@ a
   display: block;
 }
 
+/* YouTube iframe specific scale to cover aspect-ratio differences and remove black letterbox gaps */
+iframe.slideshow-media {
+  transform: scale(1.05);
+  transform-origin: center center;
+  border: none;
+}
+
 .slideshow-btn {
   position: absolute;
   top: 50%;
