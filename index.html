@@ -112,12 +112,16 @@
                         </div>
                     </article>
 
-                    <!-- Card 2 -->
-                    <article class="project-card" tabindex="0" aria-label="Project 2 Details" data-title="Voxel Engine" data-desc="An interactive voxel world generator built in C++ and OpenGL. Implements advanced algorithmic chunk generation, greedy meshing optimizations to save memory, and dynamic real-time lighting with ambient occlusion.&#10;&#10;Technical Highlights: C++, OpenGL, Chunk Generation, Greedy Meshing, Ambient Occlusion." data-bg="assets/projects/Proj2BG.png">
+                    <!-- Ecosystem Simulation -->
+                    <article class="project-card" tabindex="0" aria-label="Project 2 Details" data-title="Ecosystem Simulation" 
+                        data-desc="For my research project, I built a procedurally generated ecosystem to simulate the predator-prey dynamics.&#10;My biggest takeaway, was learning how difficult it is to balance a simulated world; every tweak completly changed the ecosystem!&#10;&#10;Highlights: Unity, C#, Procedural Generation (Perlin Noise), AI (FSM & Memory Systems), Data Visualization." 
+                        data-bg="assets/projects/Proj2BG.png"
+                        data-link="https://github.com/AnaPaolielloDeLucenaCarvalho/Algorithms2-Research"
+                        data-media="assets/projects/Proj2 EcosystemSim/1.gif,assets/projects/Proj2 EcosystemSim/2.png,assets/projects/Proj2 EcosystemSim/3.png,assets/projects/Proj2 EcosystemSim/4.png,assets/projects/Proj2 EcosystemSim/5.png,assets/projects/Proj2 EcosystemSim/6.png">
                         <div class="project-image-container">
-                            <img src="assets/projects/Proj2.png" alt="Project 2 Preview" class="project-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <img src="assets/projects/CoverProj2.png" alt="Ecosystem Simulation Preview" class="project-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                             <div class="project-media-fallback project-color-2">
-                                <span>Project 2</span>
+                                <span>Ecosystem Simulation</span>
                             </div>
                             <img src="assets/projects/BorderProj2.png" alt="Project 2 Frame" class="project-frame">
                         </div>
@@ -152,6 +156,7 @@
                     <article class="project-card" tabindex="0" aria-label="Project 5 Details" data-title="CLUTCH PATCH" 
                         data-desc="For this L'Oréal Garnier project, we created a &quot;streamer-first&quot; stealth game!&#10;I'm really proud of the Twitch integration for this project, we bridged an external IRC API with Unity to turn live chat directly into game events." 
                         data-bg="assets/projects/Proj5BG.png"
+                        data-link="https://github.com/AnaPaolielloDeLucenaCarvalho/ClientProjects-Claire.git"
                         data-media="https://youtu.be/xbTQzv5HK9g,assets/projects/Proj5 ClientProj/1.png">
                         <div class="project-image-container">
                             <img src="assets/projects/CoverProj5.png" alt="CLUTCH PATCH Preview" class="project-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -194,7 +199,8 @@
                     <article class="project-card" tabindex="0" aria-label="Project 8 Details" data-title="STARDEW VALLEY" 
                         data-desc="For one of my classes at DAE, I recreated the mine system from Stardew Valley from scratch using C++.&#10;Looking back, there is a lot I would do differently today! Still, it was a huge stepping stone for my growth as a developer." 
                         data-bg="assets/projects/Proj8BG.png"
-                        data-media="https://youtu.be/bDuCVewZcgI,assets/projects/Proj8 Stardew/1.png,assets/projects/Proj8 Stardew/2.png,assets/projects/Proj8 Stardew/3.png">
+                        data-link="https://github.com/AnaPaolielloDeLucenaCarvalho/Programming2-StardewValleyMines"
+                        data-media="https://youtu.be/bDuCVewZcgI,assets/projects/Proj8 Stardew/1Vid.mp4,assets/projects/Proj8 Stardew/2Img.png,assets/projects/Proj8 Stardew/3Img.png,assets/projects/Proj8 Stardew/4Img.png">
                         <div class="project-image-container">
                             <img src="assets/projects/CoverProj8.png" alt="STARDEW VALLEY MINES Preview" class="project-media" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                             <div class="project-media-fallback project-color-8">
@@ -235,6 +241,7 @@
                 <div class="contact-links">
                     <p>Email: <a href="mailto:anapaoliello@hotmail.com">anapaoliello@hotmail.com</a></p>
                     <p>Linkedin: <a href="https://www.linkedin.com/in/ana-pl-carvalho" target="_blank" rel="noopener noreferrer">linkedin.com/in/ana-pl-carvalho</a></p>
+                    <p>GitHub: <a href="https://github.com/AnaPaolielloDeLucenaCarvalho" target="_blank" rel="noopener noreferrer">github.com/AnaPaolielloDeLucenaCarvalho</a></p>
                 </div>
             </div>
         </section>
@@ -321,10 +328,21 @@
                         if (link) 
                         {
                             linkBtn.href = link;
+                            if (link.includes('github.com')) 
+                            {
+                                linkBtn.textContent = 'View on GitHub';
+                            } else if (link.includes('itch.io')) 
+                            {
+                                linkBtn.textContent = 'Play on Itch.io';
+                            } else 
+                            {
+                                linkBtn.textContent = 'Visit Link';
+                            }
                             linkBtn.style.display = 'inline-block';
                         } else 
                         {
                             linkBtn.href = '';
+                            linkBtn.textContent = '';
                             linkBtn.style.display = 'none';
                         }
                     }
